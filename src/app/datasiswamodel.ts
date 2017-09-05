@@ -1,0 +1,21 @@
+export class Datasiswamodel{
+    nomorinduk:String;
+    nama:String;
+    tempatlahir:String;
+    tanggallahir:Date;
+    jenis:String;
+    alamat:String;
+    golongandarah:String;
+    kelas:String;
+    agama:String;
+    telepon:String;
+    hp:String;
+    emailpribadi:String;
+    foto:String;
+    ayah:String;
+    ibu:String;
+    nomorhpayah:String;
+    nomorhpibu:String;
+    statusrec:String;
+    kodesekolah:String;
+}

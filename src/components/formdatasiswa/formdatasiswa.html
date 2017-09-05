@@ -1,0 +1,110 @@
+<!-- Generated template for the FormdatasiswaComponent component -->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Data Siswa</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+
+  <ion-item>
+    <ion-label floating>Nomor Induk</ion-label>
+    <ion-input type="text" [(ngModel)]="nomorinduk"></ion-input>
+  </ion-item>
+   <ion-item>
+    <ion-label floating>Nama</ion-label>
+    <ion-input type="text" [(ngModel)]="nama"></ion-input>
+  </ion-item>
+   <ion-item>
+    <ion-label floating>Tanggal Lahir</ion-label>
+    <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="tanggallahir"></ion-datetime>
+  </ion-item>
+   <ion-item>
+    <ion-label floating>Tempat Lahir</ion-label>
+    <ion-input type="text" [(ngModel)]="tempatlahir"></ion-input>
+  </ion-item>
+   <ion-item>
+    <ion-label floating>Jenis</ion-label>
+    <ion-select [(ngModel)]="jenis">
+    <ion-option value="Laki-Laki">Laki-Laki</ion-option>
+    <ion-option value="Perempuan">Perempuan</ion-option>
+  </ion-select>
+  </ion-item>
+   <ion-item>
+    <ion-label floating>Alamat</ion-label>
+    <ion-textarea [(ngModel)]="alamat"></ion-textarea>
+  </ion-item>
+   <ion-item>
+    <ion-label floating>Golongan Darah</ion-label>
+    <ion-input type="text" [(ngModel)]="golongandarah"></ion-input>
+  </ion-item>
+   <ion-item>
+    <ion-label floating>Kelas</ion-label>
+    <ion-select [(ngModel)]="kelas">
+      <ion-option value="1">1A</ion-option>
+      <ion-option value="2">1B</ion-option>
+  </ion-select>
+  </ion-item>
+   <ion-item>
+    <ion-label floating>Agama</ion-label>
+     <ion-select [(ngModel)]="agama">
+      <ion-option value="1">Kristen</ion-option>
+      <ion-option value="2">Hindu</ion-option>
+      <ion-option value="3">Budha</ion-option>
+  </ion-select>
+  </ion-item>
+   <ion-item>
+    <ion-label floating>Nomor Telepon</ion-label>
+    <ion-input type="text" [(ngModel)]="telepon"></ion-input>
+  </ion-item>
+   <ion-item>
+    <ion-label floating>Nomor Hp</ion-label>
+    <ion-input type="text" [(ngModel)]="nomorhp"></ion-input>
+  </ion-item>
+   <ion-item>
+    <ion-label floating>Email Pribadi</ion-label>
+    <ion-input type="text" [(ngModel)]="emailpribadi"></ion-input>
+  </ion-item>
+   <ion-item>
+    <ion-label floating>Foto</ion-label>
+    <ion-input type="text" [(ngModel)]="foto"></ion-input>
+  </ion-item>
+   <ion-item>
+    <ion-label floating>Ayah</ion-label>
+    <ion-input type="text" [(ngModel)]="ayah"></ion-input>
+  </ion-item>
+   <ion-item>
+    <ion-label floating>Ibu</ion-label>
+    <ion-input type="text" [(ngModel)]="ibu"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Nomor Hp Ayah</ion-label>
+    <ion-input type="text" [(ngModel)]="nomorhpayah"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Nomor HP Ibu</ion-label>
+    <ion-input type="text" [(ngModel)]="nomorhpibu"></ion-input>
+  </ion-item>
+   <ion-item>
+    <ion-label floating>Nomor HP</ion-label>
+    <ion-input type="text" [(ngModel)]="hp"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Status Rec</ion-label>
+    <ion-input type="text" [(ngModel)]="status"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Kode Sekolah</ion-label>
+    <ion-input type="text" [(ngModel)]="kodesekolah"></ion-input>
+  </ion-item>
+
+</ion-list>
+<div padding>
+    <button ion-button outline block (click)="simpan()">Simpan</button>
+  </div>
+  <div padding>
+    <button ion-button outline block color="danger" (click)="close()">Tutup</button>
+  </div>
+</ion-content>
