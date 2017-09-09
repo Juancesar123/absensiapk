@@ -16,16 +16,16 @@
 
 <ion-content padding>
 <ion-list>
-  <ion-item *ngFor = "let item of datasiswa" >
+  <ion-item *ngFor = "let item of datasiswa" (tap)="presentActionSheet(item)" >
     <ion-thumbnail item-start>
-      <img src="img/thumbnail-totoro.png">
+      <img src="../assets/img/avatar.png">
     </ion-thumbnail>
     <h2>{{item.nama}}</h2>
-    <p>{{item.tempatlahir}} • {{item.tanggallahir}}</p>
+    <p>{{item.tempatlahir}} • {{item.tanggallahir | date}}</p>
     <button ion-button clear item-end>View</button>
   </ion-item>
 </ion-list>
  <ion-fab right bottom>
-    <button ion-fab color="primary" (click)="tambah()"><ion-icon name="add"></ion-icon></button>
+    <button ion-fab color="primary" (tap)="tambah()"><ion-icon name="add"></ion-icon></button>
   </ion-fab>
 </ion-content>

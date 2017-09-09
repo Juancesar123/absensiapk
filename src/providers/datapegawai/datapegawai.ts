@@ -21,10 +21,16 @@ export class DatapegawaiProvider {
     let options = new RequestOptions({headers:header});
      return this.http.get("http://localhost:3030/datasiswa",options).map(res => res.json().data as Datasiswamodel[]);
   }
-  simpandata(data){
+  simpandata(data):Observable<Datasiswamodel[]> {
      let header = new Headers({'content-Type':'application/json','Authorization':localStorage.getItem('token')});
      let options = new RequestOptions({headers:header});
      let body = JSON.stringify(data);
-     return this.http.post("http://localhost:3030/datasiswa",body,options).map(res => res.json());
+     return this.http.post("http://localhost:3030/datasiswa",body,options).map(res => res.json().data as Datasiswamodel[]);
+  }
+  hapusdata(item): Observable<Datasiswamodel[]>{
+    let header = new Headers({'content-Type':'application/json','Authorization':localStorage.getItem('token')});
+    let options = new RequestOptions({headers:header});
+    let body = item.id
+    return this.http.delete("http://localhost:3030/datasiswa/"+body,options).map(res => res.json().data as Datasiswamodel[]);
   }
 }

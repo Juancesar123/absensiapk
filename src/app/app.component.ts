@@ -1,12 +1,13 @@
+import { ChattingPage } from './../pages/chatting/chatting';
+import { AprrovalregisterPage } from './../pages/aprrovalregister/aprrovalregister';
+import { ProfilPage } from './../pages/profil/profil';
 import { DatasiswaPage } from './../pages/datasiswa/datasiswa';
 import { LoginPage } from './../pages/login/login';
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 
 @Component({
   templateUrl: 'app.html'
@@ -24,7 +25,10 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
-      { title: 'Data Siswa', component: DatasiswaPage }
+      { title: 'Data Siswa', component: DatasiswaPage },
+      { title: 'Profil', component: ProfilPage },
+      { title: 'Approval Register', component: AprrovalregisterPage },
+      { title: 'Chatting', component: ChattingPage },
     ];
 
   }

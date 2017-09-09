@@ -1,3 +1,4 @@
+import { FormeditsiswaComponent } from './../../components/formeditsiswa/formeditsiswa';
 import { FormdatasiswaComponent } from './../../components/formdatasiswa/formdatasiswa';
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
@@ -12,6 +13,6 @@ import { ComponentsModule } from "../../components/components.module";
     ComponentsModule,
     IonicPageModule.forChild(DatasiswaPage),
   ],
-  entryComponents: [ FormdatasiswaComponent ]
+  entryComponents: [ FormdatasiswaComponent,FormeditsiswaComponent]
 })
 export class DatasiswaPageModule {}

@@ -1,0 +1,41 @@
+<!--
+  Generated template for the AprrovalregisterPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Approval Register</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+<ion-list  *ngFor='let item of getdatauser'>
+    <ion-item-sliding>
+      <ion-item>
+        <ion-avatar item-start>
+          <img src="img/slimer.png">
+        </ion-avatar>
+        <h2>{{item.nama}}</h2>
+        <p>Status: Pending</p>
+      </ion-item>
+      <ion-item-options side="left">
+          <button ion-button color="secondary">
+              <ion-icon ios="ios-checkmark" md="md-checkmark"></ion-icon>
+            Approve
+          </button>
+        </ion-item-options>
+      <ion-item-options side="right">
+        <button ion-button color="danger">
+            <ion-icon ios="ios-close" md="md-close"></ion-icon>
+          Disapprove
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+  
+</ion-content>
