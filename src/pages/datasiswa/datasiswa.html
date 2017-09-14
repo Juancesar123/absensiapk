@@ -10,19 +10,24 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Data Siswa</ion-title>
+    <ion-buttons end>
+        <button ion-button icon-only (tap)="refresh()">
+          <ion-icon name="refresh"></ion-icon>
+        </button>
+      </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
+<ion-searchbar [(ngModel)]="searching"></ion-searchbar>
 <ion-list>
-  <ion-item *ngFor = "let item of datasiswa" (tap)="presentActionSheet(item)" >
+  <ion-item *ngFor = "let item of datasiswa | FilterPipe: searching" (tap)="presentActionSheet(item)" >
     <ion-thumbnail item-start>
       <img src="../assets/img/avatar.png">
     </ion-thumbnail>
     <h2>{{item.nama}}</h2>
     <p>{{item.tempatlahir}} • {{item.tanggallahir | date}}</p>
-    <button ion-button clear item-end>View</button>
   </ion-item>
 </ion-list>
  <ion-fab right bottom>

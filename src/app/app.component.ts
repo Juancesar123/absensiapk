@@ -1,3 +1,4 @@
+import { KelasPage } from './../pages/kelas/kelas';
 import { ChattingPage } from './../pages/chatting/chatting';
 import { AprrovalregisterPage } from './../pages/aprrovalregister/aprrovalregister';
 import { ProfilPage } from './../pages/profil/profil';
@@ -8,7 +9,6 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
-
 @Component({
   templateUrl: 'app.html'
 })
@@ -29,6 +29,7 @@ export class MyApp {
       { title: 'Profil', component: ProfilPage },
       { title: 'Approval Register', component: AprrovalregisterPage },
       { title: 'Chatting', component: ChattingPage },
+      { title: 'Kelas', component: KelasPage },
     ];
 
   }

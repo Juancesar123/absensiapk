@@ -1,3 +1,5 @@
+import { KelasPageModule } from './../pages/kelas/kelas.module';
+import { FilterPipe } from './../components/filteringdata/filteringdata';
 import { AprrovalregisterPageModule } from './../pages/aprrovalregister/aprrovalregister.module';
 import { ChattingPageModule } from './../pages/chatting/chatting.module';
 import { DatasiswaPageModule } from './../pages/datasiswa/datasiswa.module';
@@ -16,15 +18,20 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { DatapegawaiProvider } from '../providers/datapegawai/datapegawai';
 import { AuthenticationProvider } from '../providers/authentication/authentication';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from "@ionic-native/file-transfer";
-import { File } from '@ionic-native/file';
 import { ProfilPageModule } from "../pages/profil/profil.module";
 import { AprovalregisterProvider } from '../providers/aprovalregister/aprovalregister';
-
+import { File } from '@ionic-native/file';
+import { Transfer } from '@ionic-native/transfer';
+import { FilePath } from '@ionic-native/file-path';
+import { Camera } from '@ionic-native/camera';
+import { MasterkelasProvider } from '../providers/masterkelas/masterkelas';
+import { UseraccessProvider } from '../providers/useraccess/useraccess';
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
@@ -33,6 +40,7 @@ import { AprovalregisterProvider } from '../providers/aprovalregister/aprovalreg
     RegisterPageModule,
     DatasiswaPageModule,
     ProfilPageModule,
+    KelasPageModule,
     ChattingPageModule,
     AprrovalregisterPageModule,
     IonicModule.forRoot(MyApp),
@@ -53,7 +61,12 @@ import { AprovalregisterProvider } from '../providers/aprovalregister/aprovalreg
     FileTransfer,
     FileTransferObject,
     File,
+    Camera,
+    Transfer,
+    FilePath,
     AprovalregisterProvider,
+    MasterkelasProvider,
+    UseraccessProvider,
   ]
 })
 export class AppModule {}

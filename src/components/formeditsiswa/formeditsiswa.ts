@@ -1,3 +1,4 @@
+import { DatapegawaiProvider } from './../../providers/datapegawai/datapegawai';
 import { Component } from '@angular/core';
 import { NavParams,ViewController} from 'ionic-angular';
 
@@ -9,7 +10,8 @@ import { NavParams,ViewController} from 'ionic-angular';
  */
 @Component({
   selector: 'formeditsiswa',
-  templateUrl: 'formeditsiswa.html'
+  templateUrl: 'formeditsiswa.html',
+  providers:[DatapegawaiProvider]
 })
 export class FormeditsiswaComponent {
   nama: string;
@@ -33,9 +35,11 @@ export class FormeditsiswaComponent {
   text:string;
   datasiswa;
   nomorinduk:string;
+  statusrec:string;
+  id:string;
   data;
 
-  constructor(public viewctrl: ViewController,public params: NavParams) {
+  constructor(public viewctrl: ViewController,public params: NavParams,public siswaservice :DatapegawaiProvider) {
     console.log('Hello FormeditsiswaComponent Component');
     this.text = 'Hello World';
     this.data = params.get('deviceNum');
@@ -56,9 +60,39 @@ export class FormeditsiswaComponent {
     this.tempatlahir = this.data.tempatlahir;
     this.alamat = this.data.alamat;
     this.nomorhpayah = this.data.nomorhpayah;
+    this.telepon = this.data.telepon;
+    this.statusrec = this.data.statusrec;
+    this.id = this.data.id;
   }
   close(){
     this.viewctrl.dismiss();
+  }
+  simpan(){
+    let data = {
+      nama:this.nama,
+      alamat:this.alamat,
+      telepon:this.telepon,
+      tanggallahir:this.tanggallahir,
+      tempatlahir:this.tempatlahir,
+      idagama:this.agama,
+      idkelas:this.kelas,
+      jenis:this.jenis,
+      ayah:this.ayah,
+      ibu:this.ibu,
+      nomorhpayah:this.nomorhpayah,
+      nomorhpibu:this.nomorhpibu,
+      statusrec:this.status,
+      kodesekolah:this.kodesekolah,
+      foto:'23',
+      golongandarah:this.golongandarah,
+      emailpribadi:this.emailpribadi,
+      nomorinduk:this.nomorinduk,
+      hp:this.hp,
+    }
+    let id = this.id;
+    this.siswaservice.updatedata(data,id).subscribe(val=>{
+
+    })
   }
 
 }

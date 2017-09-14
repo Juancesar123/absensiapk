@@ -64,8 +64,13 @@
     <ion-input type="text" [(ngModel)]="emailpribadi"></ion-input>
   </ion-item>
    <ion-item>
-    <ion-label  stacked>Foto</ion-label>
-    <ion-input type="file" [(ngModel)]="foto"></ion-input>
+    <button ion-button icon-left (click)="presentActionSheet()">
+      <ion-icon name="camera"></ion-icon>Select Image
+    </button>
+  </ion-item>
+  <ion-item>
+    <img src="{{pathForImage(lastImage)}}" style="width: 100%" [hidden]="lastImage === null">
+    <h3 [hidden]="lastImage !== null">Please Select Image!</h3>
   </ion-item>
    <ion-item>
     <ion-label floating>Ayah</ion-label>
@@ -98,7 +103,7 @@
 
 </ion-list>
 <div padding>
-    <button ion-button outline block (tap)="simpan()">Simpan</button>
+    <button ion-button outline block (tap)="uploadImage()">Simpan</button>
   </div>
   <div padding>
     <button ion-button outline block color="danger" (tap)="close()">Tutup</button>
