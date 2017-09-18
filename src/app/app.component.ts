@@ -1,3 +1,5 @@
+import { LogoutComponent } from './../components/logout/logout';
+import { UseraccessPage } from './../pages/useraccess/useraccess';
 import { KelasPage } from './../pages/kelas/kelas';
 import { ChattingPage } from './../pages/chatting/chatting';
 import { AprrovalregisterPage } from './../pages/aprrovalregister/aprrovalregister';
@@ -30,6 +32,8 @@ export class MyApp {
       { title: 'Approval Register', component: AprrovalregisterPage },
       { title: 'Chatting', component: ChattingPage },
       { title: 'Kelas', component: KelasPage },
+      { title: 'User Access', component: UseraccessPage },
+      { title: 'LogOut', component: LogoutComponent },
     ];
 
   }

@@ -7,6 +7,7 @@ import { FormtambahkelasComponent } from './formtambahkelas/formtambahkelas';
 import { FormeditkelasComponent } from './formeditkelas/formeditkelas';
 import { FormtambahuseraccessComponent } from './formtambahuseraccess/formtambahuseraccess';
 import { FormedituseraccessComponent } from './formedituseraccess/formedituseraccess';
+import { LogoutComponent } from './logout/logout';
 @NgModule({
 	declarations: [
 		FormdatasiswaComponent,
@@ -17,6 +18,7 @@ import { FormedituseraccessComponent } from './formedituseraccess/formedituserac
     FormtambahuseraccessComponent,
     FormedituseraccessComponent,
     FormeditkelasComponent,
+    LogoutComponent,
 	],
 	imports: [
 		 IonicPageModule.forChild(FormdatasiswaComponent),
@@ -28,6 +30,7 @@ import { FormedituseraccessComponent } from './formedituseraccess/formedituserac
     FormeditkelasComponent,
     FormtambahuseraccessComponent,
     FormedituseraccessComponent,
-    FormeditkelasComponent]
+    FormeditkelasComponent,
+    LogoutComponent]
 })
 export class ComponentsModule {}

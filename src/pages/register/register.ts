@@ -30,11 +30,13 @@ export class RegisterPage {
   register(){
       let data = {
       nomorinduk:this.nomorinduk,
-      uid:'0',nama:this.nama,
+      uid:'0',
+      nama:this.nama,
       useracces:this.useraccess,
       title:'Administrator',
       kodesekolah:this.kodesekolah,
-      password:this.password
+      password:this.password,
+      status:'0',
     }
     this.auth.daftar(data).subscribe(val=>{
       this.navCtrl.pop();

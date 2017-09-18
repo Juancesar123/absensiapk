@@ -21,16 +21,26 @@
           <img src="img/slimer.png">
         </ion-avatar>
         <h2>{{item.nama}}</h2>
-        <p>Status: Pending</p>
+        <p>Nomor Induk : {{item.nomorinduk}}</p>
+        <div *ngIf="item.status == '1'">
+          <ion-badge color="secondary"><ion-icon ios="ios-checkmark" md="md-checkmark"></ion-icon> Approved</ion-badge>
+        </div>
+        <div *ngIf="item.status == '2'">
+          <ion-badge color="danger">  <ion-icon ios="ios-close" md="md-close"></ion-icon> Disapprove</ion-badge>
+      </div>
+      <div *ngIf="item.status == '0'">
+        <ion-badge color="warning"><ion-icon ios="ios-time" md="md-time"></ion-icon> Pending</ion-badge>
+    </div>
+     
       </ion-item>
       <ion-item-options side="left">
-          <button ion-button color="secondary">
+          <button ion-button color="secondary" (click)="approve(item)">
               <ion-icon ios="ios-checkmark" md="md-checkmark"></ion-icon>
             Approve
           </button>
         </ion-item-options>
       <ion-item-options side="right">
-        <button ion-button color="danger">
+        <button ion-button color="danger" (click)="disaprove(item)">
             <ion-icon ios="ios-close" md="md-close"></ion-icon>
           Disapprove
         </button>

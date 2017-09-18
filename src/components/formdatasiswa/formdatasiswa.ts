@@ -195,7 +195,7 @@ close(){
       hp:this.hp,
      // foto:filename
     }
-    var url = "http://localhost:3030/datasiswa";
+    var url = "http://192.168.100.5:3030/datasiswa";
    let body = JSON.stringify(data)
     // File for Upload
     var targetPath = this.pathForImage(this.lastImage);
@@ -208,7 +208,7 @@ close(){
       fileName: filename,
       chunkedMode: false,
       mimeType: "multipart/form-data",
-      headers: {'content-Type':'application/json','Authorization':localStorage.getItem('token')},
+      headers: {'content-Type':undefined,'Authorization':localStorage.getItem('token')},
       params : data
     };
    
@@ -226,6 +226,7 @@ close(){
       this.presentToast('Image succesful uploaded.');
     }, err => {
       this.loading.dismissAll()
+      console.log(err)
       this.presentToast('Error while uploading file.');
     });
   }

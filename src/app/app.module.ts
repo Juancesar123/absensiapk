@@ -1,3 +1,5 @@
+import { LogoutComponent } from './../components/logout/logout';
+import { UseraccessPageModule } from './../pages/useraccess/useraccess.module';
 import { KelasPageModule } from './../pages/kelas/kelas.module';
 import { FilterPipe } from './../components/filteringdata/filteringdata';
 import { AprrovalregisterPageModule } from './../pages/aprrovalregister/aprrovalregister.module';
@@ -43,13 +45,15 @@ import { UseraccessProvider } from '../providers/useraccess/useraccess';
     KelasPageModule,
     ChattingPageModule,
     AprrovalregisterPageModule,
+    UseraccessPageModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
+    LogoutComponent
   ],
   providers: [
     StatusBar,

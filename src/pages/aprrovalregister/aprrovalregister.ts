@@ -26,5 +26,25 @@ export class AprrovalregisterPage implements OnInit{
   ionViewDidLoad() {
     console.log('ionViewDidLoad AprrovalregisterPage');
   }
-
+  getdata(){
+    this.approv.getdata().subscribe((result)=>this.getdatauser = result)
+  }
+  approve(item){
+    let data = {
+      status:'1'
+    }
+    let id = item.id;
+    this.approv.ubahstatus(data,id).subscribe(val => {
+      this.getdata();
+    })
+  }
+  disaprove(item){
+    let data = {
+      status:'2'
+    }
+    let id = item.id;
+    this.approv.ubahstatus(data,id).subscribe(val => {
+        this.getdata();
+    })
+  }
 }
