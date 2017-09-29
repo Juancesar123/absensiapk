@@ -41,13 +41,16 @@ export class LoginPage {
       position:"top"
     })
     this.auth.login(data).subscribe(val =>{
-      //console.log(val.accessToken)
       localStorage.setItem('token',val.accessToken);
-      this.navCtrl.setRoot(HomePage);
-     }, err=>{
-      loading.onDidDismiss(function(){
-        toast.present()
-      })    
+        this.auth.getuserdetail(data).subscribe(result =>{
+          localStorage.setItem('userid',result.id);
+          localStorage.setItem('username',result.nama);
+          this.navCtrl.setRoot(HomePage);
+        }, err=>{
+          loading.onDidDismiss(function(){
+            toast.present()
+          })
+        })   
       })
    
     

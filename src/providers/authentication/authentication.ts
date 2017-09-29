@@ -38,4 +38,10 @@ export class AuthenticationProvider {
     */
     return this.http.post('http://192.168.100.5:3030/authentication',body,options).map(res => res.json());
   }
+  getuserdetail(data){
+    let header = new Headers({'content-Type':'application/json','Authorization':localStorage.getItem('token')});
+    let options = new RequestOptions({headers:header});
+    //let body = JSON.stringify(data);
+    return this.http.get("http://localhost:3030/users/"+data.nomorinduk,options).map(res => res.json());
+  }
 }

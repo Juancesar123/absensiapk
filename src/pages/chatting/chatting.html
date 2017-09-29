@@ -13,7 +13,12 @@
   </ion-navbar>
 </ion-header>
 
-
 <ion-content padding>
 
+<button ion-button icon-only (click)="addSong()">
+    <ion-icon name="add"></ion-icon>
+</button>
+  <ion-item *ngFor="let item of listuser" (click)="viewchat(item)">
+      {{item.nama}}
+  </ion-item>
 </ion-content>

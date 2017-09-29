@@ -1,3 +1,4 @@
+import { PipesModule } from './../pipes/pipes.module';
 import { LogoutComponent } from './../components/logout/logout';
 import { UseraccessPageModule } from './../pages/useraccess/useraccess.module';
 import { KelasPageModule } from './../pages/kelas/kelas.module';
@@ -28,6 +29,10 @@ import { FilePath } from '@ionic-native/file-path';
 import { Camera } from '@ionic-native/camera';
 import { MasterkelasProvider } from '../providers/masterkelas/masterkelas';
 import { UseraccessProvider } from '../providers/useraccess/useraccess';
+import { EmojiProvider } from '../providers/emoji/emoji';
+import { RelativeTimePipe } from "../pipes/relative-time/relative-time";
+import { RelativeTime } from "./timepipes";
+import { EmojiPickerModule } from '@ionic-tools/emoji-picker';
 @NgModule({
   declarations: [
     MyApp,
@@ -46,7 +51,8 @@ import { UseraccessProvider } from '../providers/useraccess/useraccess';
     ChattingPageModule,
     AprrovalregisterPageModule,
     UseraccessPageModule,
-    IonicModule.forRoot(MyApp),
+    EmojiPickerModule.forRoot(),
+    IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -71,6 +77,7 @@ import { UseraccessProvider } from '../providers/useraccess/useraccess';
     AprovalregisterProvider,
     MasterkelasProvider,
     UseraccessProvider,
+    EmojiProvider,
   ]
 })
 export class AppModule {}

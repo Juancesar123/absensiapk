@@ -7,3 +7,8 @@ export class userModel{
     kodesekolah:String;
     status:String;
 }
+export class UserInfo {
+    id: string;
+    name?: string;
+    avatar?: string;
+}

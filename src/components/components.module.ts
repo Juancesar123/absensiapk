@@ -1,4 +1,7 @@
-import { NgModule } from '@angular/core';
+import { EmojiPageModule } from './../pages/emoji/emoji.module';
+import { RelativeTime } from './../app/timepipes';
+import { RelativeTimePipe } from './../pipes/relative-time/relative-time';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { FormdatasiswaComponent } from './formdatasiswa/formdatasiswa';
 import { FormeditsiswaComponent } from './formeditsiswa/formeditsiswa';
@@ -8,9 +11,13 @@ import { FormeditkelasComponent } from './formeditkelas/formeditkelas';
 import { FormtambahuseraccessComponent } from './formtambahuseraccess/formtambahuseraccess';
 import { FormedituseraccessComponent } from './formedituseraccess/formedituseraccess';
 import { LogoutComponent } from './logout/logout';
+import { ChatmessageComponent } from './chatmessage/chatmessage';
+import { EmojiPickerModule } from "@ionic-tools/emoji-picker/src";
+import { EmojiProvider } from "../providers/emoji/emoji";
+import { EmojiPage } from "../pages/emoji/emoji";
 @NgModule({
 	declarations: [
-		FormdatasiswaComponent,
+	FormdatasiswaComponent,
     FormeditsiswaComponent,
     ViewdatasiswaComponent,
     FormtambahkelasComponent,
@@ -19,9 +26,12 @@ import { LogoutComponent } from './logout/logout';
     FormedituseraccessComponent,
     FormeditkelasComponent,
     LogoutComponent,
-	],
+    ChatmessageComponent,
+    RelativeTime,
+    ],
 	imports: [
-		 IonicPageModule.forChild(FormdatasiswaComponent),
+         IonicPageModule.forChild(FormdatasiswaComponent),
+         EmojiPageModule
 	],
 	exports: [FormdatasiswaComponent,
     FormeditsiswaComponent,
@@ -31,6 +41,11 @@ import { LogoutComponent } from './logout/logout';
     FormtambahuseraccessComponent,
     FormedituseraccessComponent,
     FormeditkelasComponent,
-    LogoutComponent]
+    LogoutComponent,
+    ChatmessageComponent],
+    providers:[
+        EmojiProvider,
+    ]
+    
 })
 export class ComponentsModule {}
