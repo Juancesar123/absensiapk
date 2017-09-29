@@ -1,5 +1,6 @@
+import { LoginPage } from './../../pages/login/login';
 import { Component } from '@angular/core';
-
+import { NavController } from 'ionic-angular';
 /**
  * Generated class for the LogoutComponent component.
  *
@@ -11,12 +12,10 @@ import { Component } from '@angular/core';
   templateUrl: 'logout.html'
 })
 export class LogoutComponent {
-
   text: string;
-
-  constructor() {
+  constructor(public navctrl:NavController) {
     console.log('Hello LogoutComponent Component');
-    this.text = 'Hello World';
+    localStorage.clear()
+    this.navctrl.setRoot(LoginPage)
   }
-
 }

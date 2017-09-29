@@ -18,7 +18,7 @@
 <button ion-button icon-only (click)="addSong()">
     <ion-icon name="add"></ion-icon>
 </button>
-  <ion-item *ngFor="let item of listuser" (click)="viewchat(item)">
+  <ion-item *ngFor="let item of listuser" (click)="viewchat(item)" [hidden]="item.nama == datauser">
       {{item.nama}}
   </ion-item>
 </ion-content>

@@ -93,4 +93,5 @@
         <variable name="SENDER_ID" value="12341234" />
     </plugin>
     <plugin name="cordova-plugin-fcm" spec="^2.1.2" />
+    <allow-navigation href="http://192.168.42.130:8100" />
 </widget>

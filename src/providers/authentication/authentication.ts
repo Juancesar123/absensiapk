@@ -36,7 +36,7 @@ export class AuthenticationProvider {
     /* fungsi ini ngepost data email dan password di api apakah ada. di api akan di cek datanya
        lalu di return hasilnya dan di convert ke JSON
     */
-    return this.http.post('http://192.168.100.5:3030/authentication',body,options).map(res => res.json());
+    return this.http.post('http://localhost:3030/authentication',body,options).map(res => res.json());
   }
   getuserdetail(data){
     let header = new Headers({'content-Type':'application/json','Authorization':localStorage.getItem('token')});

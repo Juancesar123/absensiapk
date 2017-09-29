@@ -18,8 +18,10 @@ import { IonicPage, NavController, NavParams, AlertController, ActionSheetContro
 })
 export class ChattingPage {
   listuser:userModel[] = [];
+  datauser;
   constructor(public actionSheetCtrl: ActionSheetController,public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, public userservice:AprovalregisterProvider) {
     this.userservice.getdata().subscribe((result) => this.listuser = result)
+    this.datauser = localStorage.getItem('username');
   }
 
   ionViewDidLoad() {

@@ -38,11 +38,7 @@ export class ChatmessageComponent {
   this.username = localStorage.getItem('username');
   this.datauser = localStorage.getItem('userid');
   //console.log(this.datauser);
-  this.msgList = af.list('/chats',{query: {
-      ".indexOn": "userId",
-      orderByChild: 'userId',
-      equalTo: this.text
-    }});
+  this.msgList = af.list('/chats');
     this.toUser = {
       id: this.navParams.get('toUserId'),
       name: this.navParams.get('toUserName')
