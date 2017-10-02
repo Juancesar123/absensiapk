@@ -45,6 +45,7 @@ export class LoginPage {
         this.auth.getuserdetail(data).subscribe(result =>{
           localStorage.setItem('userid',result.id);
           localStorage.setItem('username',result.nama);
+          localStorage.setItem('datauser',JSON.stringify(result));
           this.navCtrl.setRoot(HomePage);
         }, err=>{
           loading.onDidDismiss(function(){

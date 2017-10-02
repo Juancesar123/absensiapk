@@ -36,6 +36,7 @@ export class RegisterPage {
       title:'Administrator',
       kodesekolah:this.kodesekolah,
       password:this.password,
+      gambar:'defaultimage.png',
       status:'0',
     }
     this.auth.daftar(data).subscribe(val=>{

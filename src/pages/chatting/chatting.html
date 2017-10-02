@@ -14,11 +14,11 @@
 </ion-header>
 
 <ion-content padding>
-
-<button ion-button icon-only (click)="addSong()">
-    <ion-icon name="add"></ion-icon>
-</button>
   <ion-item *ngFor="let item of listuser" (click)="viewchat(item)" [hidden]="item.nama == datauser">
+      <ion-avatar item-start>
+          <img src="http://198.50.174.117/{{item.gambar}}">
+        </ion-avatar>
       {{item.nama}}
+      <p>{{item.nomorinduk}}</p>
   </ion-item>
 </ion-content>

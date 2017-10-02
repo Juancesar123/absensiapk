@@ -15,9 +15,9 @@
   
       <div class="message-wrap">
   
-          <div *ngFor="let msg of msgList | async"  class="message"
-          [class.left]=" msg.toUserId === toUser.id "
-          [class.right]=" msg.userId ===  datauser">
+          <div *ngFor="let msg of msgList | async"  class="message" [hidden]="msg.userId !== datauser ||  msg.toUserId !== datauser"
+          [class.left]=" msg.userId == toUser.id "
+          [class.right]=" msg.userId ==  datauser">
               <img class="user-img" alt="" src="../assets/img/avatar.png">
               <ion-spinner name="dots" *ngIf="msg.status === 'pending'"></ion-spinner>
               <div class="msg-detail">
