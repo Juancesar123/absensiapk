@@ -18,22 +18,21 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   rootPage: any = LoginPage;
-
-  pages: Array<{title: string, component: any}>;
-
+  pages: Array<{title: string, component: any,icon:any}>;
+  datauser;
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
-
+    this.datauser = JSON.parse(localStorage.getItem('datauser'));
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'Data Siswa', component: DatasiswaPage },
-      { title: 'Profil', component: ProfilPage },
-      { title: 'Approval Register', component: AprrovalregisterPage },
-      { title: 'Chatting', component: ChattingPage },
-      { title: 'Kelas', component: KelasPage },
-      { title: 'User Access', component: UseraccessPage },
-      { title: 'LogOut', component: LogoutComponent },
+      { title: 'Home', component: HomePage,icon: 'ios-home-outline' },
+      { title: 'Data Siswa', component: DatasiswaPage,icon: 'logo-buffer' },
+      { title: 'Profil', component: ProfilPage,icon: 'ios-contact-outline'},
+      { title: 'Approval Register', component: AprrovalregisterPage,icon: 'logo-buffer'},
+      { title: 'Chatting', component: ChattingPage,icon: 'ios-chatbubbles-outline'},
+      { title: 'Kelas', component: KelasPage,icon: 'logo-buffer'},
+      { title: 'User Access', component: UseraccessPage,icon: 'ios-key-outline' },
+      { title: 'LogOut', component: LogoutComponent ,icon: 'ios-power-outline'},
     ];
 
   }

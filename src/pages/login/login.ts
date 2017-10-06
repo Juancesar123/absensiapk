@@ -47,13 +47,11 @@ export class LoginPage {
           localStorage.setItem('username',result.nama);
           localStorage.setItem('datauser',JSON.stringify(result));
           this.navCtrl.setRoot(HomePage);
-        }, err=>{
-          loading.onDidDismiss(function(){
-            toast.present()
-          })
         })   
+      }, error =>{
+        loading.onDidDismiss(function(){
+          toast.present()
+        })
       })
-   
-    
   }
 }

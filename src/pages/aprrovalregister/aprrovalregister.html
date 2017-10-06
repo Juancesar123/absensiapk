@@ -14,8 +14,8 @@
 </ion-header>
 
 <ion-content padding>
-<ion-list  *ngFor='let item of getdatauser'>
-    <ion-item-sliding>
+<ion-list>
+    <ion-item-sliding *ngFor='let item of getdatauser'>
       <ion-item>
         <h2>{{item.nama}}</h2>
         <p>Nomor Induk : {{item.nomorinduk}}</p>

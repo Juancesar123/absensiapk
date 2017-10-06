@@ -7,7 +7,14 @@
 
   <ion-content>
     <ion-list>
+        <ion-card text-center class="hide-card">
+            <img src="http://198.50.174.117/{{datauser.gambar}}" class="custom-avatar"/>
+            <h2>{{datauser.nama}}</h2>
+            <p>Nomor Induk: {{datauser.nomorinduk}}</p>
+            <hr>
+        </ion-card>        
       <button menuClose ion-item *ngFor="let p of pages" (tap)="openPage(p)">
+          <ion-icon item-left [name]="p.icon"></ion-icon>
         {{p.title}}
       </button>
     </ion-list>
