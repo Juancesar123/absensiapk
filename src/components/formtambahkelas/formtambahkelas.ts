@@ -22,8 +22,8 @@ export class FormtambahkelasComponent {
   }
   simpan(){
     let data = {
-      kelas:'23S',
-      kode_sekolah:'23'
+      kelas:this.kelas,
+      kode_sekolah:this.kodesekolah
     }
     this.kelasprovider.simpandata(data).subscribe(val =>{
        let loadpresnt = this.loadctrl.create({

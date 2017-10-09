@@ -7,7 +7,7 @@
 
   <ion-content>
     <ion-list>
-        <ion-card text-center class="hide-card">
+        <ion-card text-center class="hide-card" *ngIf="datauser !=null">
             <img src="http://198.50.174.117/{{datauser.gambar}}" class="custom-avatar"/>
             <h2>{{datauser.nama}}</h2>
             <p>Nomor Induk: {{datauser.nomorinduk}}</p>

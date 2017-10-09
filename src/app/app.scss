@@ -16,8 +16,11 @@
 // automatically applied to the <body> element in the app.
 .hide-card {
     -webkit-box-shadow: none!important;
+    background-color: "#9EADF0"
   }
-  
+  .card{
+    background-image: url('assets/img/background.jpg')
+  }
   .custom-avatar {
     height: 30vw;
     width: 30vw;

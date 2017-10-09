@@ -38,7 +38,8 @@ export class LoginPage {
     loading.present();
     let toast = this.toastctrl.create({
       message:"gagal cek username / password",
-      position:"top"
+      position:"top",
+      duration:2000
     })
     this.auth.login(data).subscribe(val =>{
       localStorage.setItem('token',val.accessToken);

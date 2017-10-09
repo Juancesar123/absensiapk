@@ -1,3 +1,5 @@
+import { LaporanabsensiPageModule } from './../pages/laporanabsensi/laporanabsensi.module';
+import { AbsensisiswaPageModule } from './../pages/absensisiswa/absensisiswa.module';
 import { PipesModule } from './../pipes/pipes.module';
 import { LogoutComponent } from './../components/logout/logout';
 import { UseraccessPageModule } from './../pages/useraccess/useraccess.module';
@@ -33,6 +35,8 @@ import { EmojiProvider } from '../providers/emoji/emoji';
 import { RelativeTimePipe } from "../pipes/relative-time/relative-time";
 import { RelativeTime } from "./timepipes";
 import { EmojiPickerModule } from '@ionic-tools/emoji-picker';
+import { SettingjamPageModule } from '../pages/settingjam/settingjam.module';
+import { SettingjamProvider } from '../providers/settingjam/settingjam';
 @NgModule({
   declarations: [
     MyApp,
@@ -48,9 +52,12 @@ import { EmojiPickerModule } from '@ionic-tools/emoji-picker';
     DatasiswaPageModule,
     ProfilPageModule,
     KelasPageModule,
+    LaporanabsensiPageModule,
     ChattingPageModule,
     AprrovalregisterPageModule,
     UseraccessPageModule,
+    AbsensisiswaPageModule,
+    SettingjamPageModule,
     EmojiPickerModule.forRoot(),
     IonicModule.forRoot(MyApp)
   ],
@@ -78,6 +85,7 @@ import { EmojiPickerModule } from '@ionic-tools/emoji-picker';
     MasterkelasProvider,
     UseraccessProvider,
     EmojiProvider,
+    SettingjamProvider,
   ]
 })
 export class AppModule {}

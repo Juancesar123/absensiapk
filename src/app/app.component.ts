@@ -1,3 +1,5 @@
+import { LaporanabsensiPage } from './../pages/laporanabsensi/laporanabsensi';
+import { AbsensisiswaPage } from './../pages/absensisiswa/absensisiswa';
 import { LogoutComponent } from './../components/logout/logout';
 import { UseraccessPage } from './../pages/useraccess/useraccess';
 import { KelasPage } from './../pages/kelas/kelas';
@@ -11,6 +13,7 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
+import { SettingjamPage } from '../pages/settingjam/settingjam';
 @Component({
   templateUrl: 'app.html'
 })
@@ -19,10 +22,11 @@ export class MyApp {
 
   rootPage: any = LoginPage;
   pages: Array<{title: string, component: any,icon:any}>;
-  datauser;
+  datauser:any;
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
-    this.datauser = JSON.parse(localStorage.getItem('datauser'));
+      this.datauser = JSON.parse(localStorage.getItem('datauser'));
+      console.log(this.datauser)
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage,icon: 'ios-home-outline' },
@@ -32,6 +36,9 @@ export class MyApp {
       { title: 'Chatting', component: ChattingPage,icon: 'ios-chatbubbles-outline'},
       { title: 'Kelas', component: KelasPage,icon: 'logo-buffer'},
       { title: 'User Access', component: UseraccessPage,icon: 'ios-key-outline' },
+      { title: 'Setting Jam Absen', component: SettingjamPage,icon: 'ios-settings-outline' },
+      { title: 'Absensi siswa', component: AbsensisiswaPage,icon: 'ios-checkmark' },
+      {title: 'Laporan Absensi Siswa', component: LaporanabsensiPage,icon: 'ios-book-outline' },      
       { title: 'LogOut', component: LogoutComponent ,icon: 'ios-power-outline'},
     ];
 
