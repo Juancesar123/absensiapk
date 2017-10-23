@@ -1,3 +1,4 @@
+import { PipesModule } from './../../pipes/pipes.module';
 import { FormedituseraccessComponent } from './../../components/formedituseraccess/formedituseraccess';
 import { FormeditkelasComponent } from './../../components/formeditkelas/formeditkelas';
 import { FormtambahuseraccessComponent } from './../../components/formtambahuseraccess/formtambahuseraccess';
@@ -11,6 +12,7 @@ import { UseraccessPage } from './useraccess';
   ],
   imports: [
     IonicPageModule.forChild(UseraccessPage),
+    PipesModule
   ],
   entryComponents:[FormtambahuseraccessComponent,FormeditkelasComponent,FormedituseraccessComponent]
 })

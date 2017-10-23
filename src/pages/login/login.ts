@@ -37,7 +37,7 @@ export class LoginPage {
     })
     loading.present();
     let toast = this.toastctrl.create({
-      message:"gagal cek username / password",
+      message:"gagal cek username atau password",
       position:"top",
       duration:2000
     })

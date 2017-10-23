@@ -1,3 +1,5 @@
+import { HomePage } from './../pages/home/home';
+import { AuthenticationProvider } from './../providers/authentication/authentication';
 import { LaporanabsensiPage } from './../pages/laporanabsensi/laporanabsensi';
 import { AbsensisiswaPage } from './../pages/absensisiswa/absensisiswa';
 import { LogoutComponent } from './../components/logout/logout';
@@ -12,7 +14,6 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { HomePage } from '../pages/home/home';
 import { SettingjamPage } from '../pages/settingjam/settingjam';
 @Component({
   templateUrl: 'app.html'
@@ -20,29 +21,30 @@ import { SettingjamPage } from '../pages/settingjam/settingjam';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = LoginPage;
+  rootPage: any = HomePage;
   pages: Array<{title: string, component: any,icon:any}>;
   datauser:any;
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  userdataok:any;
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,public auth : AuthenticationProvider) {
     this.initializeApp();
-      this.datauser = JSON.parse(localStorage.getItem('datauser'));
-      console.log(this.datauser)
-    // used for an example of ngFor and navigation
-    this.pages = [
-      { title: 'Home', component: HomePage,icon: 'ios-home-outline' },
-      { title: 'Data Siswa', component: DatasiswaPage,icon: 'logo-buffer' },
-      { title: 'Profil', component: ProfilPage,icon: 'ios-contact-outline'},
-      { title: 'Approval Register', component: AprrovalregisterPage,icon: 'logo-buffer'},
-      { title: 'Chatting', component: ChattingPage,icon: 'ios-chatbubbles-outline'},
-      { title: 'Kelas', component: KelasPage,icon: 'logo-buffer'},
-      { title: 'User Access', component: UseraccessPage,icon: 'ios-key-outline' },
-      { title: 'Setting Jam Absen', component: SettingjamPage,icon: 'ios-settings-outline' },
-      { title: 'Absensi siswa', component: AbsensisiswaPage,icon: 'ios-checkmark' },
-      {title: 'Laporan Absensi Siswa', component: LaporanabsensiPage,icon: 'ios-book-outline' },      
-      { title: 'LogOut', component: LogoutComponent ,icon: 'ios-power-outline'},
-    ];
 
-  }
+    this.datauser = JSON.parse(localStorage.getItem('datauser'));
+    
+    // used for an example of ngFor and navigation
+      this.pages = [
+        { title: 'Home', component: HomePage,icon: 'ios-home-outline' },
+        { title: 'Data Siswa', component: DatasiswaPage,icon: 'logo-buffer' },
+        { title: 'Profil', component: ProfilPage,icon: 'ios-contact-outline'},
+        { title: 'Approval Register', component: AprrovalregisterPage,icon: 'logo-buffer'},
+        { title: 'Chatting', component: ChattingPage,icon: 'ios-chatbubbles-outline'},
+        { title: 'Kelas', component: KelasPage,icon: 'logo-buffer'},
+        { title: 'User Access', component: UseraccessPage,icon: 'ios-key-outline' },
+        { title: 'Absensi siswa', component: AbsensisiswaPage,icon: 'ios-checkmark' },         
+        { title: 'Setting Jam Absen', component: SettingjamPage,icon: 'ios-settings-outline' },
+        { title: 'Laporan Absensi Siswa', component: LaporanabsensiPage,icon: 'ios-book-outline' },      
+        { title: 'LogOut', component: LogoutComponent ,icon: 'ios-power-outline'},
+      ];
+    }
 
   initializeApp() {
     this.platform.ready().then(() => {
@@ -50,6 +52,13 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+      this.userdataok = JSON.parse(localStorage.getItem('datauser'));
+      if (this.userdataok == null) {
+        this.nav.setRoot(LoginPage)
+        // this.user is authenticated!
+      }else{
+        this.nav.setRoot(HomePage);
+      }
     });
   }
 

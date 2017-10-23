@@ -18,13 +18,15 @@ export class FormtambahuseraccessComponent {
   text: string;
   useraccess:string;
   kodesekolah:string;
+  datauser:any;
   constructor(public useraccessservice : UseraccessProvider, public loadctrl: LoadingController, public toast:ToastController,public viewctrl: ViewController) {
    
   }
   simpan(){
+    this.datauser = JSON.parse(localStorage.getItem('datauser'));
     let data = {
       user_access : this.useraccess,
-      kode_sekolah : this.kodesekolah
+      kode_sekolah : this.datauser.kodesekolah
     }
     let loading = this.loadctrl.create({
       content: "Mohon Tunggu..."

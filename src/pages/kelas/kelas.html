@@ -20,9 +20,11 @@
 
 
 <ion-content padding>
-  <ion-searchbar [(ngModel)]="searching"></ion-searchbar>
+ 
+  <ion-searchbar [(ngModel)]="searchTerm" ></ion-searchbar>
+  
   <ion-list>
-    <ion-item *ngFor = "let item of datakelas" (tap)="presentActionSheet(item)" >
+    <ion-item *ngFor = "let item of datakelas | serachingpipe: searchTerm" (tap)="presentActionSheet(item)" >
       <p>{{item.kelas}}</p>
     </ion-item>
   </ion-list>

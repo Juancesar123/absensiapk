@@ -20,6 +20,7 @@ export class FormedituseraccessComponent {
   useraccess:string;
   kodesekolah:string;
   id:string;
+  datauser:any;
   constructor(public viewctrl: ViewController,public params: NavParams, public useraccessService: UseraccessProvider, public loadingctrl : LoadingController, public toastctrl:ToastController) {
     console.log('Hello FormedituseraccessComponent Component');
     this.text = 'Hello World';
@@ -32,9 +33,10 @@ export class FormedituseraccessComponent {
     this.viewctrl.dismiss();
   }
   simpan(){
+    this.datauser = JSON.parse(localStorage.getItem('datauser'));
     let data = {
       user_access: this.useraccess,
-      kode_sekolah : this.kodesekolah
+      kode_sekolah : this.datauser.kodesekolah
     }
     let id = this.id;
     this.useraccessService.updatedata(data,id).subscribe(val=>{

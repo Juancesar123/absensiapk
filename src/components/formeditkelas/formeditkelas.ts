@@ -19,6 +19,7 @@ export class FormeditkelasComponent {
   text: string;
   data;
   id:string;
+  datauser:any;
   constructor(public kelasservice : MasterkelasProvider, public params: NavParams, public viewctrl : ViewController,public toastctrl : ToastController, public loadctrl: LoadingController) {
     console.log('Hello FormeditkelasComponent Component');
     this.text = 'Hello World';
@@ -29,9 +30,10 @@ export class FormeditkelasComponent {
 
   }
   simpan(){
+    this.datauser = JSON.parse(localStorage.getItem('datauser'));
     let data = {
       kelas:this.kelas,
-      kode_sekolah:this.kodesekolah
+      kode_sekolah:this.datauser.kodesekolah
     }
     let id = this.id
     this.kelasservice.updatedata(data,id).subscribe(val => {

@@ -3,6 +3,7 @@ import { FormtambahkelasComponent } from './../../components/formtambahkelas/for
 import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController, ActionSheetController } from 'ionic-angular';
 import { FormeditkelasComponent } from "../../components/formeditkelas/formeditkelas";
+import { FormControl } from '@angular/forms';
 
 /**
  * Generated class for the KelasPage page.
@@ -17,20 +18,22 @@ import { FormeditkelasComponent } from "../../components/formeditkelas/formeditk
   templateUrl: 'kelas.html',
   providers:[MasterkelasProvider]
 })
+
 export class KelasPage implements OnInit{
+ 
   datakelas;
   constructor(public navCtrl: NavController, public navParams: NavParams,public modalCtrl : ModalController,public kelasservice : MasterkelasProvider, public actionctrl:ActionSheetController){
+   
   }
+
   ngOnInit(){
     this.kelasservice.getdata().subscribe((result)=> this.datakelas = result);
   }
+  
   tambah(){
     let profileModal = this.modalCtrl.create(FormtambahkelasComponent);
     profileModal.present();
 }
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad KelasPage');
-  }
   refresh(){
     this.kelasservice.getdata().subscribe((result)=> this.datakelas = result);
   }
@@ -67,3 +70,4 @@ export class KelasPage implements OnInit{
     actionSheet.present();
   }
 }
+

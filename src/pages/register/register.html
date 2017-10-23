@@ -22,7 +22,13 @@
               <ion-input type="text" name="nomorinduk" [(ngModel)]="nomorinduk"  placeholder="Masukkan Nomor Induk Anda"></ion-input>
             </ion-item>
              <ion-item>
-              <ion-input type="text" name="kodesekolah" [(ngModel)]="kodesekolah"  placeholder="Nomor Induk"></ion-input>
+                <ion-label>Sekolah</ion-label>
+              <ion-select name="kodesekolah" [(ngModel)]="kodesekolah">
+                <ion-option value="101101">SDN 01 Kebalen</ion-option>
+                <ion-option value="123001">SMPN 07 Jakarta</ion-option>
+                <ion-option value="131111">SMAN 117 Jakarta</ion-option>
+                <ion-option value="144111">SMAN 111 Jakarta</ion-option>
+              </ion-select>
             </ion-item>
              <ion-item>
               <ion-label>Access</ion-label>

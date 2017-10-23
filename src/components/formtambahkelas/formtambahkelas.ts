@@ -1,3 +1,4 @@
+import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { LoadingController, ToastController, ViewController } from 'ionic-angular';
 import { MasterkelasProvider } from './../../providers/masterkelas/masterkelas';
 import { Component } from '@angular/core';
@@ -17,13 +18,15 @@ export class FormtambahkelasComponent {
 
   kelas: string;
   kodesekolah:string;
+  datauser:any;
   constructor(public kelasprovider: MasterkelasProvider, public loadctrl: LoadingController, public toastcontroll: ToastController, public viewctrl: ViewController) {
    
   }
   simpan(){
+    this.datauser = JSON.parse(localStorage.getItem('datauser'));
     let data = {
       kelas:this.kelas,
-      kode_sekolah:this.kodesekolah
+      kode_sekolah:this.datauser.kodesekolah
     }
     this.kelasprovider.simpandata(data).subscribe(val =>{
        let loadpresnt = this.loadctrl.create({
