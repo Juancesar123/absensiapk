@@ -20,11 +20,28 @@
 
 
 <ion-content padding>
+    <ion-item>
+        <ion-label floating>Day</ion-label>
+        <ion-select name="day" [(ngModel)]="day">
+            <ion-option value="sunday">Sunday</ion-option>
+            <ion-option value="monday">Monday</ion-option>
+            <ion-option value="tuesday">Tuesday</ion-option>
+            <ion-option value="wednesday">Wednesday</ion-option>
+            <ion-option value="thursday">Thursday</ion-option>
+            <ion-option value="friday">Friday</ion-option>
+            <ion-option value="saturday">Saturday</ion-option>
+          </ion-select>    
+      </ion-item>
   <ion-item>
-    <ion-label floating>Jam Mulai Absensi</ion-label>
-    <ion-datetime displayFormat="HH:mm" [(ngModel)]="starttime">
+    <ion-label floating>Set Time</ion-label>
+    <ion-datetime displayFormat="HH:mm" [(ngModel)]="settime">
     </ion-datetime>
   </ion-item>
+  <ion-item>
+      <ion-label floating>Jam Mulai Absensi</ion-label>
+      <ion-datetime displayFormat="HH:mm" [(ngModel)]="starttime">
+      </ion-datetime>
+    </ion-item>
   <ion-item>
     <ion-label floating>Jam Selesai Absensi</ion-label>
     <ion-datetime displayFormat="HH:mm" [(ngModel)]="endtime">
@@ -33,4 +50,11 @@
   <div padding>
     <button ion-button outline block (tap)="save()">Simpan</button>
   </div>
+  <ion-list>
+    <ion-item *ngFor = "let item of dataattd" (tap)="presentActionSheet(item)"  [hidden]="item.kodesekolah != datauser.kodesekolah">
+      <h2>{{item.day}}</h2>
+      <p>Start Time: {{item.starttime}}</p>
+      <p>End Time: {{item.endtime}}</p>
+    </ion-item>
+  </ion-list>
 </ion-content>

@@ -11,11 +11,11 @@ import { settingjamModel } from '../../app/settingjammodel';
 */
 @Injectable()
 export class SettingjamProvider {
-
+  datauser:any;
   constructor(public http: Http) {
     console.log('Hello SettingjamProvider Provider');
   }
-  simpandata(data){
+   simpandata(data){
     let header = new Headers({'Content-Type':'Application/json','Authorization':localStorage.getItem('token')});
     let options = new RequestOptions({headers:header});
     let body = JSON.stringify(data);
@@ -25,6 +25,11 @@ export class SettingjamProvider {
     let header = new Headers({'Content-Type':'Application/json','Authorization':localStorage.getItem('token')});
     let options = new RequestOptions({headers:header});
     return this.http.get('http://localhost:3030/settingjam',options).map(res => res.json().data as settingjamModel[]);
+  }
+  hapusdata(item){
+    let header = new Headers({'Content-Type':'Application/json','Authorization':localStorage.getItem('token')});
+    let options = new RequestOptions({headers:header});
+    return this.http.delete('http://localhost:3030/settingjam/'+item.id,options).map(res => res.json().data as settingjamModel[]);
   }
   updatedata(data,id){
     let header = new Headers({'Content-Type':'Application/json','Authorization':localStorage.getItem('token')});
