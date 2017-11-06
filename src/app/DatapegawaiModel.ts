@@ -1,0 +1,26 @@
+export class DatapegawaiModel{
+    name:string;
+    Nomor_Induk:String;
+    Namama:String;
+    tglLahir:String;
+    TempatLahir:Date;
+    Tempat_Lahir:String;
+    Jenis:String;
+    Alamat:String;
+    Goldar:String;
+    id_jabatan:String;
+    Jabatan:String;
+    Id_StatusPegawai:String;
+    StatusPegawai:String;
+    Id_Agama:String;
+    agama:String;
+    Id_StatusNikah:String;
+    StatusNikah:String;
+    NoKtp:String;
+    telepon:String;
+    HP:String;
+    statusrec:String;
+    kodesekolah:String;
+    foto:string;
+    emailPribadi:string;
+}

@@ -1,3 +1,4 @@
+import { ContactusPageModule } from './../contactus/contactus.module';
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { RegisterPage } from './register';
@@ -8,6 +9,7 @@ import { RegisterPage } from './register';
   ],
   imports: [
     IonicPageModule.forChild(RegisterPage),
+    ContactusPageModule
   ],
 })
 export class RegisterPageModule {}

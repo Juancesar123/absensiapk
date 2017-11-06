@@ -1,0 +1,34 @@
+<!--
+  Generated template for the DatasiswaPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Data Pegawai</ion-title>
+    <ion-buttons end>
+        <button ion-button icon-only (tap)="refresh()">
+          <ion-icon name="refresh"></ion-icon>
+        </button>
+      </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+<ion-searchbar [(ngModel)]="searching"></ion-searchbar>
+<ion-list>
+  <ion-item *ngFor = "let item of datapegawai | datapegawaisearch: searching" (tap)="presentActionSheet(item)"  [hidden]="item.Kode_Sekolah != datauser.kodesekolah">
+    <ion-thumbnail item-start>
+      <img src="assets/img/avatar.png">
+    </ion-thumbnail>
+    <h2>{{item.Nama}}</h2>
+    <p>{{item.TempatLahir}} • {{item.TglLahir | date}}</p>
+  </ion-item>
+</ion-list>
+ <ion-fab right bottom>
+    <button ion-fab color="primary" (tap)="tambah()"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+</ion-content>

@@ -4,11 +4,10 @@
       <ion-title>Menu</ion-title>
     </ion-toolbar>
   </ion-header>
-
   <ion-content>
     <ion-list>
         <ion-card text-center class="hide-card" *ngIf="datauser !=null">
-            <img src="http://localhost:3030/{{datauser.gambar}}" class="custom-avatar"/>
+            <img src="http://198.50.174.117/{{datauser.gambar}}" class="custom-avatar"/>
             <h2>{{datauser.nama}}</h2>
             <p>Nomor Induk: {{datauser.nomorinduk}}</p>
             <hr>
@@ -19,8 +18,6 @@
       </button>
     </ion-list>
   </ion-content>
-
 </ion-menu>
-
 <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
 <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

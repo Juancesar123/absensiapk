@@ -22,10 +22,12 @@ export class DatasiswaPage  implements OnInit {
   platform: any;
   datasiswa;
   items;
+  datauser;
   ngOnInit(){
     this.siswaservice.getdata().subscribe((result) => this.datasiswa = result)
  }  
   constructor(public navCtrl: NavController, public navParams: NavParams,public viewCtrl: ViewController, public siswaservice: DatapegawaiProvider,public modalCtrl: ModalController,public actionctrl:ActionSheetController,public formaja : FormdatasiswaComponent) {
+    this.datauser = JSON.parse(localStorage.getItem('datauser'));
   }
   
   ionViewDidLoad() {

@@ -1,0 +1,53 @@
+<!--
+  Generated template for the RegisterPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="dark">
+    <ion-title>Contact Us</ion-title>
+  </ion-navbar>
+</ion-header>
+ 
+ 
+<ion-content class="login-content" padding>
+    Eshan Technovation Unggul
+    Sistem Informasi Absensi Pendidikan (SIAPendidikan)              
+ 
+  <div class="login-box">
+      <ion-row>
+        <ion-col>
+          <ion-list inset *ngFor="let item of dataperson">
+               <div item-end>
+            Alamat
+            </div>
+            <ion-item>
+              <ion-note item-end>
+                {{item.alamat}}
+              </ion-note>
+            </ion-item>
+            <ion-item>
+                Telp
+                <ion-note item-end>
+                  {{item.telepon}}
+                </ion-note>
+              </ion-item>
+              <p>Contact Person </p>
+              <ion-item>
+                  Nomor Handphone
+                  <ion-note item-end>
+                    {{item.nomorhp}}
+                  </ion-note>
+                </ion-item>
+                <ion-item>
+                    Email
+                    <ion-note item-end>
+                      {{item.email}}
+                    </ion-note>
+                  </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+  </div>
+</ion-content>

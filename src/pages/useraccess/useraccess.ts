@@ -19,10 +19,12 @@ import { IonicPage, NavController, NavParams, ModalController, ActionSheetContro
 })
 export class UseraccessPage implements OnInit{
   listdatauseraccess: any;
+  datauser;
   ngOnInit() {
   this.useraccess.getdata().subscribe((result) => this.listdatauseraccess = result)
 }
   constructor(public navCtrl: NavController, public navParams: NavParams, public useraccess: UseraccessProvider, public modalctrl: ModalController, public actionctrl: ActionSheetController) {
+    this.datauser = JSON.parse(localStorage.getItem('datauser'));
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad UseraccessPage');

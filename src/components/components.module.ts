@@ -15,6 +15,9 @@ import { ChatmessageComponent } from './chatmessage/chatmessage';
 import { EmojiPickerModule } from "@ionic-tools/emoji-picker/src";
 import { EmojiProvider } from "../providers/emoji/emoji";
 import { EmojiPage } from "../pages/emoji/emoji";
+import { FormtambahpegawaiComponent } from './formtambahpegawai/formtambahpegawai';
+import { FormeditpegawaiComponent } from './formeditpegawai/formeditpegawai';
+import { ViewdatapegawaiComponent } from './viewdatapegawai/viewdatapegawai';
 @NgModule({
 	declarations: [
 	FormdatasiswaComponent,
@@ -28,6 +31,9 @@ import { EmojiPage } from "../pages/emoji/emoji";
     LogoutComponent,
     ChatmessageComponent,
     RelativeTime,
+    FormtambahpegawaiComponent,
+    FormeditpegawaiComponent,
+    ViewdatapegawaiComponent,
     ],
 	imports: [
          IonicPageModule.forChild(FormdatasiswaComponent),
@@ -42,7 +48,10 @@ import { EmojiPage } from "../pages/emoji/emoji";
     FormedituseraccessComponent,
     FormeditkelasComponent,
     LogoutComponent,
-    ChatmessageComponent],
+    ChatmessageComponent,
+    FormtambahpegawaiComponent,
+    FormeditpegawaiComponent,
+    ViewdatapegawaiComponent],
     providers:[
         EmojiProvider,
     ]

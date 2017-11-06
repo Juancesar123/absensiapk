@@ -1,3 +1,4 @@
+import { LoginPageModule } from './../login/login.module';
 import { ViewdatasiswaComponent } from './../../components/viewdatasiswa/viewdatasiswa';
 //import { FilterPipe } from './../../components/filteringdata/filteringdata';
 import { FormeditsiswaComponent } from './../../components/formeditsiswa/formeditsiswa';
@@ -7,6 +8,7 @@ import { IonicPageModule } from 'ionic-angular';
 import { DatasiswaPage } from './datasiswa';
 import { ComponentsModule } from "../../components/components.module";
 import { FilterPipe } from "../../app/filterpipe";
+import { PipesModule } from '../../pipes/pipes.module';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import { FilterPipe } from "../../app/filterpipe";
   imports: [
     ComponentsModule,
     IonicPageModule.forChild(DatasiswaPage),
+    LoginPageModule,
+    PipesModule
   ],
   entryComponents: [ FormdatasiswaComponent,FormeditsiswaComponent,ViewdatasiswaComponent]
 })

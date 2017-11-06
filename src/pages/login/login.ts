@@ -1,3 +1,4 @@
+import { ContactusPage } from './../contactus/contactus';
 import { HomePage } from './../home/home';
 import { AuthenticationProvider } from './../../providers/authentication/authentication';
 import { RegisterPage } from './../register/register';
@@ -29,6 +30,9 @@ export class LoginPage {
   register(){
     this.navCtrl.push(RegisterPage);
   }
+  contactus(){
+    this.navCtrl.push(ContactusPage);
+  }
   login(){
     let data = {nomorinduk:this.nomorinduk,password:this.password,strategy:'local'}
     let loading =  this.loadctrl.create({
@@ -41,13 +45,30 @@ export class LoginPage {
       position:"top",
       duration:2000
     })
+    let pending = this.toastctrl.create({
+      message:'data anda belum di setujui',
+      position:'top',
+      duration:2000
+    })
+
+    let disaprove = this.toastctrl.create({
+      message:'data anda tidak di setujui',
+      position:'top',
+      duration:2000
+    })
     this.auth.login(data).subscribe(val =>{
       localStorage.setItem('token',val.accessToken);
         this.auth.getuserdetail(data).subscribe(result =>{
-          localStorage.setItem('userid',result.id);
-          localStorage.setItem('username',result.nama);
-          localStorage.setItem('datauser',JSON.stringify(result));
-          this.navCtrl.setRoot(HomePage);
+          if(result.status == 0){
+            pending.present();
+          }else if(result.status == 2){
+            disaprove.present();
+          }else{
+            localStorage.setItem('userid',result.id);
+            localStorage.setItem('username',result.nama);
+            localStorage.setItem('datauser',JSON.stringify(result));
+            this.navCtrl.setRoot(HomePage);
+          }
         })   
       }, error =>{
         loading.onDidDismiss(function(){

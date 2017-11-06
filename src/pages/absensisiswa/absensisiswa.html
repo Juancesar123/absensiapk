@@ -9,7 +9,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Absensi Siswa</ion-title>
+    <ion-title>Absensi Finger</ion-title>
     <ion-buttons end>
         <button ion-button icon-only (tap)="refresh()">
           <ion-icon name="refresh"></ion-icon>
@@ -20,5 +20,8 @@
 
 
 <ion-content padding>
-
+  <h2>untuk Absensi Klik Tombol Di bawah ini</h2>
+  <div padding>
+    <button ion-button outline block color="secondary" (tap)="absen()">Masuk</button>
+  </div>
 </ion-content>

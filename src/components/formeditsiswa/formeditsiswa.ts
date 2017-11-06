@@ -1,6 +1,6 @@
 import { DatapegawaiProvider } from './../../providers/datapegawai/datapegawai';
 import { Component } from '@angular/core';
-import { NavParams,ViewController} from 'ionic-angular';
+import { NavParams, ViewController, LoadingController, ToastController } from 'ionic-angular';
 
 /**
  * Generated class for the FormeditsiswaComponent component.
@@ -38,10 +38,12 @@ export class FormeditsiswaComponent {
   statusrec:string;
   id:string;
   data;
-
-  constructor(public viewctrl: ViewController,public params: NavParams,public siswaservice :DatapegawaiProvider) {
-    console.log('Hello FormeditsiswaComponent Component');
-    this.text = 'Hello World';
+  loading;
+  datauser;
+  constructor(public toast: ToastController,public viewctrl: ViewController,public params: NavParams,public siswaservice :DatapegawaiProvider,public loader: LoadingController) {
+   // console.log('Hello FormeditsiswaComponent Component');
+   this.datauser = JSON.parse(localStorage.getItem('datauser')); 
+   this.text = 'Hello World';
     this.data = params.get('deviceNum');
     this.nama = this.data.nama;
     this.kelas = this.data.idkelas;
@@ -67,6 +69,14 @@ export class FormeditsiswaComponent {
   close(){
     this.viewctrl.dismiss();
   }
+  private presentToast(text) {
+    let toast = this.toast.create({
+      message: text,
+      duration: 3000,
+      position: 'top'
+    });
+    toast.present();
+  }
   simpan(){
     let data = {
       nama:this.nama,
@@ -81,17 +91,25 @@ export class FormeditsiswaComponent {
       ibu:this.ibu,
       nomorhpayah:this.nomorhpayah,
       nomorhpibu:this.nomorhpibu,
-      statusrec:this.status,
-      kodesekolah:this.kodesekolah,
-      foto:'23',
+      statusrec:'active',
+      kodesekolah:this.datauser.kodesekolah,
+      foto:'defaultimage.png',
       golongandarah:this.golongandarah,
       emailpribadi:this.emailpribadi,
       nomorinduk:this.nomorinduk,
       hp:this.hp,
     }
     let id = this.id;
+    this.loading = this.loader.create({
+      content: 'Mohon Tunggu...',
+    });
+    this.loading.present(); 
     this.siswaservice.updatedata(data,id).subscribe(val=>{
-
+      this.loading.dismissAll();
+      this.presentToast('Data sukses di update');
+    },err=>{
+      this.loading.dismissAll();
+      this.presentToast('Data gagal Dikirim')
     })
   }
 

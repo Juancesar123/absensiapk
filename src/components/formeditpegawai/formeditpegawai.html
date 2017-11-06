@@ -1,0 +1,122 @@
+<!-- Generated template for the FormdatasiswaComponent component -->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Ubah Data Pegawai</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+
+  <ion-item>
+    <ion-label floating>Nomor Induk</ion-label>
+    <ion-input type="text" [(ngModel)]="nomorinduk"></ion-input>
+  </ion-item>
+   <ion-item>
+    <ion-label floating>Nama</ion-label>
+    <ion-input type="text" [(ngModel)]="nama"></ion-input>
+  </ion-item>
+   <ion-item>
+    <ion-label floating>Tanggal Lahir</ion-label>
+    <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="tanggallahir"></ion-datetime>
+  </ion-item>
+   <ion-item>
+    <ion-label floating>Tempat Lahir</ion-label>
+    <ion-input type="text" [(ngModel)]="tempatlahir"></ion-input>
+  </ion-item>
+   <ion-item>
+    <ion-label floating>Jenis</ion-label>
+    <ion-select [(ngModel)]="jenis">
+    <ion-option value="Laki-Laki">Laki-Laki</ion-option>
+    <ion-option value="Perempuan">Perempuan</ion-option>
+  </ion-select>
+  </ion-item>
+   <ion-item>
+    <ion-label floating>Alamat</ion-label>
+    <ion-textarea [(ngModel)]="alamat"></ion-textarea>
+  </ion-item>
+   <ion-item>
+    <ion-label floating>Golongan Darah</ion-label>
+    <ion-input type="text" [(ngModel)]="golongandarah"></ion-input>
+  </ion-item>
+   <ion-item>
+    <ion-label floating>Jabatan</ion-label>
+    <ion-select [(ngModel)]="jabatan" >
+      <ion-option value="Kepala Sekolah">Kepala Sekolah</ion-option>
+      <ion-option value="Wakasesk Kesiswaan">Wakasesk Kesiswaan</ion-option>
+      <ion-option value="Wakasesk Kurikulum">Wakasesk Kurikulum</ion-option>
+      <ion-option value="Wakasesk Humas">Wakasesk Humas</ion-option>
+      <ion-option value="Wakasesk Sarana dan Prasarana">Wakasesk Sarana dan Prasarana</ion-option>
+      <ion-option value="Wakasek Hub masyarakat">Wakasek Hub masyarakat</ion-option>
+      <ion-option value="Guru Mata Pelajaran">Guru Mata Pelajaran</ion-option>
+      <ion-option value="Wali Kelas">Wali Kelas</ion-option>
+      <ion-option value="Guru Bimbingan dan Konseling">Guru Bimbingan dan Konseling</ion-option>
+      <ion-option value="Pustakawan Sekolah">Pustakawan Sekolah</ion-option>
+      <ion-option value="Pengelola Laboratorium">Pengelola Laboratorium</ion-option>
+      <ion-option value="Kepala Tata Usaha">Kepala Tata Usaha</ion-option>
+      <ion-option value="Staff Tata Usaha">Staff Tata Usaha</ion-option>
+      <ion-option value="Koordinator BP">Koordinator BP</ion-option>
+      <ion-option value="Staff">Staff</ion-option>
+      <ion-option value="Dan lain-lain">Dan lain-lain</ion-option>
+  </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Agama</ion-label>
+     <ion-select [(ngModel)]="agama">
+      <ion-option value="1">Kristen</ion-option>
+      <ion-option value="2">Hindu</ion-option>
+      <ion-option value="3">Budha</ion-option>
+  </ion-select>
+  </ion-item>
+   <ion-item>
+    <ion-label floating>Status Pegawai</ion-label>
+     <ion-select [(ngModel)]="statuspegawai">
+      <ion-option value="01">PNS</ion-option>
+      <ion-option value="02">CPNS</ion-option>
+      <ion-option value="03">Kontrak</ion-option>
+      <ion-option value="04">Honorer</ion-option>
+  </ion-select>
+  </ion-item>
+   <ion-item>
+    <ion-label floating>Status Nikah</ion-label>
+    <ion-select [(ngModel)]="statusmenikah">
+      <ion-option value="01">Menikah</ion-option>
+      <ion-option value="02">Belum Menikah</ion-option>
+      <ion-option value="03">Janda</ion-option>
+      <ion-option value="04">Duda</ion-option>
+  </ion-select>
+  </ion-item>
+   <ion-item>
+    <ion-label floating>Nomor Ktp</ion-label>
+    <ion-input type="text" [(ngModel)]="nomorktp"></ion-input>
+  </ion-item>
+   <!-- <ion-item>
+    <button ion-button icon-left (click)="presentActionSheet()">
+      <ion-icon name="camera"></ion-icon>Select Image
+    </button>
+  </ion-item> -->
+  <!-- <ion-item>
+    <img src="{{pathForImage(lastImage)}}" style="width: 100%" [hidden]="lastImage === null">
+    <h3 [hidden]="lastImage !== null">Please Select Image!</h3>
+  </ion-item> -->
+  <ion-item>
+    <ion-label floating>Nomor Hp</ion-label>
+    <ion-input type="text" [(ngModel)]="nomorhp"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Email Pribadi</ion-label>
+    <ion-input type="text" [(ngModel)]="emailpribadi"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Nomor Telepon</ion-label>
+    <ion-input type="text" [(ngModel)]="telepon"></ion-input>
+  </ion-item>
+</ion-list>
+<div padding>
+    <button ion-button outline block (tap)="simpan()">Simpan</button>
+  </div>
+  <div padding>
+    <button ion-button outline block color="danger" (tap)="close()">Tutup</button>
+  </div>
+</ion-content>

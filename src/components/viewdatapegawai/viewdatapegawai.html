@@ -1,0 +1,95 @@
+<!-- Generated template for the FormdatasiswaComponent component -->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Data Pegawai</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="../assets/img/avatar.png">
+      </ion-avatar>
+      <h2>{{nama}}</h2>
+      <p>{{nomorinduk}}</p>
+    </ion-item>
+
+    <ion-item>
+      Alamat
+      <ion-note item-end>
+        {{alamat}}
+      </ion-note>
+    </ion-item>
+    <ion-item>
+      Nomor Telepon
+      <ion-note item-end>
+        {{telepon}}
+      </ion-note>
+    </ion-item>
+    <ion-item>
+      Tanggal Lahir
+      <ion-note item-end>
+        {{tanggallahir | date}}
+      </ion-note>
+    </ion-item>
+    <ion-item>
+      Tempat Lahir
+      <ion-note item-end>
+        {{tempatlahir}}
+      </ion-note>
+    </ion-item>
+    <ion-item>
+      Jenis Kelamin
+      <ion-note item-end>
+        {{jenis}}
+      </ion-note>
+    </ion-item>
+    <ion-item>
+      Golongan Darah
+      <ion-note item-end>
+        {{golongandarah}}
+      </ion-note>
+    </ion-item>
+    <ion-item>
+      Nomor HP
+      <ion-note item-end>
+        {{nomorhp}}
+      </ion-note>
+    </ion-item>
+    <ion-item>
+      Nomor KTP
+      <ion-note item-end>
+        {{nomorktp}}
+      </ion-note>
+    </ion-item>
+    <ion-item>
+      Status Nikah
+      <ion-note item-end>
+        {{statusmenikah}}
+      </ion-note>
+    </ion-item>
+    <ion-item>
+      Email
+      <ion-note item-end>
+        {{emailpribadi}}
+      </ion-note>
+    </ion-item>
+    <ion-item>
+      Jabatan
+      <ion-note item-end>
+        {{jabatan}}
+      </ion-note>
+    </ion-item>
+    <ion-item>
+      Status Pegawai
+      <ion-note item-end>
+        {{statuspegawai}}
+      </ion-note>
+    </ion-item>
+</ion-list>
+  <div padding>
+    <button ion-button outline block color="danger" (tap)="close()">Tutup</button>
+  </div>
+</ion-content>

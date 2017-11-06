@@ -22,13 +22,12 @@
               <ion-input type="text" name="nomorinduk" [(ngModel)]="nomorinduk"  placeholder="Masukkan Nomor Induk Anda"></ion-input>
             </ion-item>
              <ion-item>
-                <ion-label>Sekolah</ion-label>
-              <ion-select name="kodesekolah" [(ngModel)]="kodesekolah">
-                <ion-option value="101101">SDN 01 Kebalen</ion-option>
-                <ion-option value="123001">SMPN 07 Jakarta</ion-option>
-                <ion-option value="131111">SMAN 117 Jakarta</ion-option>
-                <ion-option value="144111">SMAN 111 Jakarta</ion-option>
-              </ion-select>
+                <ion-label>Kode Sekolah</ion-label>
+                <ion-input type="text"  name="kodesekolah" [(ngModel)]="kodesekolah"  placeholder="Masukkan Kode Sekolah Anda"></ion-input>      
+            </ion-item>
+             <ion-item>
+                <ion-label>Nama Sekolah</ion-label>
+                <ion-input type="text"  name="namasekolah" [(ngModel)]="namasekolah"  placeholder="Masukkan Nama Sekolah Anda"></ion-input>      
             </ion-item>
              <ion-item>
               <ion-label>Access</ion-label>
@@ -43,9 +42,14 @@
               <ion-input type="text"  name="nama" [(ngModel)]="nama"  placeholder="Masukkan Nama Anda"></ion-input>
             </ion-item>
             <ion-item>
+                <ion-input type="email"  name="email" [(ngModel)]="email"  placeholder="Masukkan Email Anda"></ion-input>
+              </ion-item>
+              <ion-item>
+                  <ion-input type="text"  name="nomorhp" [(ngModel)]="nomorhp"  placeholder="Masukkan Nomor hp Anda"></ion-input>
+                </ion-item>
+            <ion-item>
               <ion-input  type="password" name="password" [(ngModel)]="password"  placeholder="Masukkan Password Anda"></ion-input>
             </ion-item>
-            
           </ion-list>
         </ion-col>
       </ion-row>
@@ -54,7 +58,12 @@
           <button ion-button class="submit-btn" full type="submit" [disabled]="!registerForm.form.valid">Register</button>
         </ion-col>
       </ion-row>
-      
     </form>
+
+    <ion-row>
+      <ion-col class="signup-col">
+        <button ion-button class="submit-btn" full (tap)="contactus()">Contact Us</button>
+      </ion-col>
+    </ion-row>
   </div>
 </ion-content>

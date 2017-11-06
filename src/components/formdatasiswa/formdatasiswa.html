@@ -63,15 +63,15 @@
     <ion-label floating>Email Pribadi</ion-label>
     <ion-input type="text" [(ngModel)]="emailpribadi"></ion-input>
   </ion-item>
-   <ion-item>
+   <!-- <ion-item>
     <button ion-button icon-left (click)="presentActionSheet()">
       <ion-icon name="camera"></ion-icon>Select Image
     </button>
-  </ion-item>
-  <ion-item>
+  </ion-item> -->
+  <!-- <ion-item>
     <img src="{{pathForImage(lastImage)}}" style="width: 100%" [hidden]="lastImage === null">
     <h3 [hidden]="lastImage !== null">Please Select Image!</h3>
-  </ion-item>
+  </ion-item> -->
    <ion-item>
     <ion-label floating>Ayah</ion-label>
     <ion-input type="text" [(ngModel)]="ayah"></ion-input>
@@ -92,18 +92,9 @@
     <ion-label floating>Nomor HP</ion-label>
     <ion-input type="text" [(ngModel)]="hp"></ion-input>
   </ion-item>
-  <ion-item>
-    <ion-label floating>Status Rec</ion-label>
-    <ion-input type="text" [(ngModel)]="status"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label floating>Kode Sekolah</ion-label>
-    <ion-input type="text" [(ngModel)]="kodesekolah"></ion-input>
-  </ion-item>
-
 </ion-list>
 <div padding>
-    <button ion-button outline block (tap)="uploadImage()">Simpan</button>
+    <button ion-button outline block (tap)="simpan()">Simpan</button>
   </div>
   <div padding>
     <button ion-button outline block color="danger" (tap)="close()">Tutup</button>

@@ -20,10 +20,10 @@ import { FormControl } from '@angular/forms';
 })
 
 export class KelasPage implements OnInit{
- 
+  datauser;
   datakelas;
   constructor(public navCtrl: NavController, public navParams: NavParams,public modalCtrl : ModalController,public kelasservice : MasterkelasProvider, public actionctrl:ActionSheetController){
-   
+    this.datauser = JSON.parse(localStorage.getItem('datauser'));
   }
 
   ngOnInit(){

@@ -58,7 +58,7 @@ sendMsg() {
       toUserId: this.navParams.get('toUserId'),
       time: Date.now(),
       message: this.editorMsg,
-      status: 'pending'
+      status: 'success'
   };
 
  // this.chats.push(newMsg);

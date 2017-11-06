@@ -1,3 +1,7 @@
+import { DataentryattdPageModule } from './../pages/dataentryattd/dataentryattd.module';
+import { ImportdatasiswaPageModule } from './../pages/importdatasiswa/importdatasiswa.module';
+import { ImportdatapegawaiPageModule } from './../pages/importdatapegawai/importdatapegawai.module';
+import { DatapegawaiPageModule } from './../pages/datapegawai/datapegawai.module';
 import { LaporanabsensiPageModule } from './../pages/laporanabsensi/laporanabsensi.module';
 import { AbsensisiswaPageModule } from './../pages/absensisiswa/absensisiswa.module';
 import { PipesModule } from './../pipes/pipes.module';
@@ -13,6 +17,7 @@ import { LoginPageModule } from './../pages/login/login.module';
 import {HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
+import {Push} from'@ionic-native/push';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import "hammerjs";
 import { MyApp } from './app.component';
@@ -37,6 +42,9 @@ import { RelativeTime } from "./timepipes";
 import { EmojiPickerModule } from '@ionic-tools/emoji-picker';
 import { SettingjamPageModule } from '../pages/settingjam/settingjam.module';
 import { SettingjamProvider } from '../providers/settingjam/settingjam';
+import { DatasiswaProvider } from '../providers/datasiswa/datasiswa';
+import { ContactusProvider } from '../providers/contactus/contactus';
+import { UniqueDeviceID } from '@ionic-native/unique-device-id';
 @NgModule({
   declarations: [
     MyApp,
@@ -51,6 +59,10 @@ import { SettingjamProvider } from '../providers/settingjam/settingjam';
     RegisterPageModule,
     DatasiswaPageModule,
     ProfilPageModule,
+    DatapegawaiPageModule,
+    ImportdatapegawaiPageModule,
+    ImportdatasiswaPageModule,
+    DataentryattdPageModule,
     KelasPageModule,
     LaporanabsensiPageModule,
     ChattingPageModule,
@@ -78,6 +90,7 @@ import { SettingjamProvider } from '../providers/settingjam/settingjam';
     FileTransfer,
     FileTransferObject,
     File,
+    UniqueDeviceID,
     Camera,
     Transfer,
     FilePath,
@@ -86,6 +99,8 @@ import { SettingjamProvider } from '../providers/settingjam/settingjam';
     UseraccessProvider,
     EmojiProvider,
     SettingjamProvider,
+    DatasiswaProvider,
+    ContactusProvider
   ]
 })
 export class AppModule {}
