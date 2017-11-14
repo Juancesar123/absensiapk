@@ -83,6 +83,8 @@
     <allow-navigation href="http://192.168.100.6:8100" />
     <allow-navigation href="http://192.168.100.9:8100" />
     <allow-navigation href="http://192.168.1.13:8100" />
+    <allow-navigation href="http://192.168.42.240:8100" />
+    <allow-navigation href="http://10.107.189.80:8100" />
     <engine name="android" spec="^6.2.3" />
     <plugin name="cordova-plugin-camera" spec="^2.4.1" />
     <plugin name="cordova-plugin-console" spec="^1.0.5" />
@@ -94,5 +96,8 @@
     <plugin name="cordova-plugin-statusbar" spec="^2.2.2" />
     <plugin name="cordova-plugin-uniquedeviceid" spec="^1.3.2" />
     <plugin name="cordova-plugin-whitelist" spec="^1.3.1" />
+    <plugin name="cordova-sqlite-storage" spec="^2.1.0" />
     <plugin name="ionic-plugin-keyboard" spec="^2.2.1" />
+    <plugin name="phonegap-plugin-push" spec="^2.0.0" />
+    <allow-navigation href="http://192.168.43.132:8100" />
 </widget>

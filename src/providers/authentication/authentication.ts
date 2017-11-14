@@ -25,7 +25,7 @@ export class AuthenticationProvider {
     /* fungsi ini ngepost data email dan password di api apakah ada. di api akan di cek datanya
        lalu di return hasilnya dan di convert ke JSON
     */
-    return this.http.post(' http://localhost:3030/users',body,options).map(res => res.json());
+    return this.http.post(' http://198.50.174.117/users',body,options).map(res => res.json());
 
   }
   login(data){
@@ -36,12 +36,12 @@ export class AuthenticationProvider {
     /* fungsi ini ngepost data email dan password di api apakah ada. di api akan di cek datanya
        lalu di return hasilnya dan di convert ke JSON
     */
-    return this.http.post('http://localhost:3030/authentication',body,options).map(res => res.json());
+    return this.http.post('http://198.50.174.117/authentication',body,options).map(res => res.json());
   }
   getuserdetail(data){
     let header = new Headers({'content-Type':'application/json','Authorization':localStorage.getItem('token')});
     let options = new RequestOptions({headers:header});
     //let body = JSON.stringify(data);
-    return this.http.get("http://localhost:3030/users/"+data.nomorinduk,options).map(res => res.json());
+    return this.http.get("http://198.50.174.117/users/"+data.nomorinduk,options).map(res => res.json());
   }
 }
