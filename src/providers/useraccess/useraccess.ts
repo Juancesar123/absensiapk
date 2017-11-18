@@ -19,7 +19,7 @@ export class UseraccessProvider {
   getdata():Observable<UserAccessModel[]>{
     let header = new Headers({'Authorization':localStorage.getItem('token')});
     let options = new RequestOptions({headers:header});
-    return this.http.get('http://localhost:3030/masteruseraccess',options).map(res => res.json() as UserAccessModel[]);
+    return this.http.get('hhttp://localhost:3030/masteruseraccess',options).map(res => res.json() as UserAccessModel[]);
   }
   simpandata(data){
     let header = new Headers({'Content-Type':'Application/json','Authorization':localStorage.getItem('token')});

@@ -1,6 +1,7 @@
 import { AprovalregisterProvider } from './../../providers/aprovalregister/aprovalregister';
 import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Push, PushOptions, PushObject } from '@ionic-native/push';
 
 /**
  * Generated class for the AprrovalregisterPage page.
@@ -23,12 +24,49 @@ export class AprrovalregisterPage implements OnInit{
   ngOnInit(){
    this.getdata();
   }
-  constructor(public navCtrl: NavController, public navParams: NavParams, public approv:AprovalregisterProvider) {
+  constructor(private push: Push,public navCtrl: NavController, public navParams: NavParams, public approv:AprovalregisterProvider) {
     this.datauser = JSON.parse(localStorage.getItem('datauser'));
+    // to check if we have permission
+    this.push.hasPermission()
+      .then((res: any) => {
+    
+        if (res.isEnabled) {
+          console.log('We have permission to send push notifications');
+        } else {
+          console.log('We do not have permission to send push notifications');
+        }
+    
+      });
+    
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AprrovalregisterPage');
+  }
+  pushnotif(){
+    const options: PushOptions = {
+      android: {
+        icon:'ios-checkmark',
+        sound: 'true',
+        vibrate:true,
+      },
+      ios: {
+          alert: 'true',
+          badge: true,
+          sound: 'false'
+      },
+      windows: {},
+      browser: {
+          pushServiceURL: 'http://push.api.phonegap.com/v1/push'
+      }
+   };
+   
+   const pushObject: PushObject = this.push.init(options);
+   pushObject.on('notification').subscribe((notification: any) => console.log('Received a notification', notification));
+   
+   pushObject.on('registration').subscribe((registration: any) => console.log('Device registered', registration));
+   
+   pushObject.on('error').subscribe(error => console.error('Error with Push plugin', error));
   }
   getdata(){
     this.approv.getdata()
@@ -59,12 +97,12 @@ export class AprrovalregisterPage implements OnInit{
       let updateItem = this.getdatauser.find(x => x.id == dataku.id);
       
       let index = this.getdatauser.indexOf(updateItem);
-      
+
        //console.log(JSON.stringify(updateItem));
       // // console.log(JSON.stringify(this.itemArray));
       
       this.getdatauser[index] = dataku;
-
+      this.pushnotif();
     })
   }
 
@@ -84,13 +122,11 @@ export class AprrovalregisterPage implements OnInit{
     let id = item.nomorinduk;
     this.approv.ubahstatus(data,id).subscribe(val => {
        let updateItem = this.getdatauser.find(x => x.id == dataku.id);
-      
       let index = this.getdatauser.indexOf(updateItem);
-      
        //console.log(JSON.stringify(updateItem));
       // // console.log(JSON.stringify(this.itemArray));
-      
       this.getdatauser[index] = dataku;
+      this.pushnotif();
     })
   }
 }

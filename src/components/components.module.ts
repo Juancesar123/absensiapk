@@ -18,6 +18,8 @@ import { EmojiPage } from "../pages/emoji/emoji";
 import { FormtambahpegawaiComponent } from './formtambahpegawai/formtambahpegawai';
 import { FormeditpegawaiComponent } from './formeditpegawai/formeditpegawai';
 import { ViewdatapegawaiComponent } from './viewdatapegawai/viewdatapegawai';
+import { ForminputsuratketeranganComponent } from './forminputsuratketerangan/forminputsuratketerangan';
+import { FormeditsuratketeranganComponent } from './formeditsuratketerangan/formeditsuratketerangan';
 @NgModule({
 	declarations: [
 	FormdatasiswaComponent,
@@ -34,6 +36,8 @@ import { ViewdatapegawaiComponent } from './viewdatapegawai/viewdatapegawai';
     FormtambahpegawaiComponent,
     FormeditpegawaiComponent,
     ViewdatapegawaiComponent,
+    ForminputsuratketeranganComponent,
+    FormeditsuratketeranganComponent,
     ],
 	imports: [
          IonicPageModule.forChild(FormdatasiswaComponent),
@@ -51,7 +55,9 @@ import { ViewdatapegawaiComponent } from './viewdatapegawai/viewdatapegawai';
     ChatmessageComponent,
     FormtambahpegawaiComponent,
     FormeditpegawaiComponent,
-    ViewdatapegawaiComponent],
+    ViewdatapegawaiComponent,
+    ForminputsuratketeranganComponent,
+    FormeditsuratketeranganComponent],
     providers:[
         EmojiProvider,
     ]

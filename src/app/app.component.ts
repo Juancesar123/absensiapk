@@ -1,3 +1,4 @@
+import { SuratketeranganPage } from './../pages/suratketerangan/suratketerangan';
 import { ImportdatapegawaiPage } from './../pages/importdatapegawai/importdatapegawai';
 import { ImportdatasiswaPage } from './../pages/importdatasiswa/importdatasiswa';
 import { DataentryattdPage } from './../pages/dataentryattd/dataentryattd';
@@ -49,6 +50,8 @@ export class MyApp {
         if(this.datauser.useracces == 'admin'){
         this.pages = [
           { title: 'Home', component: HomePage,icon: 'ios-home-outline' },
+          { title: 'Surat Keterangan', component: SuratketeranganPage,icon: 'ios-book-outline' },      
+          
           { title: 'Data Siswa', component: DatasiswaPage,icon: 'logo-buffer' },
           { title: 'Data Pegawai', component: DatapegawaiPage,icon: 'logo-buffer' },
           { title: 'Approval Register', component: AprrovalregisterPage,icon: 'logo-buffer'},   
@@ -69,7 +72,8 @@ export class MyApp {
           { title: 'Profil', component: ProfilPage,icon: 'ios-contact-outline'},
           { title: 'Chatting', component: ChattingPage,icon: 'ios-chatbubbles-outline'},
           { title: 'Absensi Finger', component: AbsensisiswaPage,icon: 'ios-checkmark' },         
-          { title: 'Laporan Absensi', component: LaporanabsensiPage,icon: 'ios-book-outline' },      
+          { title: 'Laporan Absensi', component: LaporanabsensiPage,icon: 'ios-book-outline' },
+          { title: 'Surat Keterngan', component: SuratketeranganPage,icon: 'ios-book-outline' },      
           { title: 'LogOut', component: LogoutComponent ,icon: 'ios-power-outline'},
         ];
       }else if(this.datauser.useracces == 'pegawai'){
@@ -79,6 +83,7 @@ export class MyApp {
           { title: 'Chatting', component: ChattingPage,icon: 'ios-chatbubbles-outline'},
           { title: 'Absensi Finger', component: AbsensisiswaPage,icon: 'ios-checkmark' },         
           { title: 'Laporan Absensi', component: LaporanabsensiPage,icon: 'ios-book-outline' },      
+          { title: 'Surat Keterangan', component: SuratketeranganPage,icon: 'ios-book-outline' },
           { title: 'LogOut', component: LogoutComponent ,icon: 'ios-power-outline'},
         ];
       }else if(this.datauser.useracces == 'guru'){
@@ -87,7 +92,8 @@ export class MyApp {
           { title: 'Profil', component: ProfilPage,icon: 'ios-contact-outline'},
           { title: 'Chatting', component: ChattingPage,icon: 'ios-chatbubbles-outline'},
           { title: 'Absensi Finger', component: AbsensisiswaPage,icon: 'ios-checkmark' },         
-          { title: 'Laporan Absensi', component: LaporanabsensiPage,icon: 'ios-book-outline' },      
+          { title: 'Laporan Absensi', component: LaporanabsensiPage,icon: 'ios-book-outline' },
+          { title: 'Surat Keterangan', component: SuratketeranganPage,icon: 'ios-book-outline' },      
           { title: 'LogOut', component: LogoutComponent ,icon: 'ios-power-outline'},
         ];
       }else if(this.datauser.useracces == 'owner'){
@@ -101,7 +107,7 @@ export class MyApp {
           { title: 'Home', component: HomePage,icon: 'ios-home-outline' },
           { title: 'Data Siswa', component: DatasiswaPage,icon: 'logo-buffer' },
           { title: 'Data Pegawai', component: DatapegawaiPage,icon: 'logo-buffer' },
-      
+          { title: 'Surat Keterangan', component: SuratketeranganPage,icon: 'ios-book-outline' },
           { title: 'Profil', component: ProfilPage,icon: 'ios-contact-outline'},
           { title: 'Approval Register', component: AprrovalregisterPage,icon: 'logo-buffer'},
           { title: 'Import Data Pegawai', component: ImportdatapegawaiPage,icon: 'logo-buffer'},

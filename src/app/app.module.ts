@@ -1,3 +1,4 @@
+import { SuratketeranganPageModule } from './../pages/suratketerangan/suratketerangan.module';
 import { DataentryattdPageModule } from './../pages/dataentryattd/dataentryattd.module';
 import { ImportdatasiswaPageModule } from './../pages/importdatasiswa/importdatasiswa.module';
 import { ImportdatapegawaiPageModule } from './../pages/importdatapegawai/importdatapegawai.module';
@@ -45,6 +46,8 @@ import { SettingjamProvider } from '../providers/settingjam/settingjam';
 import { DatasiswaProvider } from '../providers/datasiswa/datasiswa';
 import { ContactusProvider } from '../providers/contactus/contactus';
 import { UniqueDeviceID } from '@ionic-native/unique-device-id';
+import { SuratketeranganProvider } from '../providers/suratketerangan/suratketerangan';
+//import {Push} from '@ionic-native/Push';
 @NgModule({
   declarations: [
     MyApp,
@@ -68,6 +71,7 @@ import { UniqueDeviceID } from '@ionic-native/unique-device-id';
     ChattingPageModule,
     AprrovalregisterPageModule,
     UseraccessPageModule,
+    SuratketeranganPageModule,
     AbsensisiswaPageModule,
     SettingjamPageModule,
     EmojiPickerModule.forRoot(),
@@ -90,6 +94,7 @@ import { UniqueDeviceID } from '@ionic-native/unique-device-id';
     FileTransfer,
     FileTransferObject,
     File,
+    Push,
     UniqueDeviceID,
     Camera,
     Transfer,
@@ -100,7 +105,8 @@ import { UniqueDeviceID } from '@ionic-native/unique-device-id';
     EmojiProvider,
     SettingjamProvider,
     DatasiswaProvider,
-    ContactusProvider
+    ContactusProvider,
+    SuratketeranganProvider
   ]
 })
 export class AppModule {}
