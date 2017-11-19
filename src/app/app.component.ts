@@ -69,6 +69,7 @@ export class MyApp {
       }else if(this.datauser.useracces == 'siswa'){
         this.pages = [
           { title: 'Home', component: HomePage,icon: 'ios-home-outline' },
+           { title: 'Surat Keterangan', component: SuratketeranganPage,icon: 'ios-book-outline' },
           { title: 'Profil', component: ProfilPage,icon: 'ios-contact-outline'},
           { title: 'Chatting', component: ChattingPage,icon: 'ios-chatbubbles-outline'},
           { title: 'Absensi Finger', component: AbsensisiswaPage,icon: 'ios-checkmark' },         
@@ -80,6 +81,7 @@ export class MyApp {
         this.pages = [
           { title: 'Home', component: HomePage,icon: 'ios-home-outline' },
           { title: 'Profil', component: ProfilPage,icon: 'ios-contact-outline'},
+          { title: 'Surat Keterangan', component: SuratketeranganPage,icon: 'ios-book-outline' },
           { title: 'Chatting', component: ChattingPage,icon: 'ios-chatbubbles-outline'},
           { title: 'Absensi Finger', component: AbsensisiswaPage,icon: 'ios-checkmark' },         
           { title: 'Laporan Absensi', component: LaporanabsensiPage,icon: 'ios-book-outline' },      
@@ -90,6 +92,7 @@ export class MyApp {
         this.pages = [
           { title: 'Home', component: HomePage,icon: 'ios-home-outline' },
           { title: 'Profil', component: ProfilPage,icon: 'ios-contact-outline'},
+          { title: 'Surat Keterangan', component: SuratketeranganPage,icon: 'ios-book-outline' },
           { title: 'Chatting', component: ChattingPage,icon: 'ios-chatbubbles-outline'},
           { title: 'Absensi Finger', component: AbsensisiswaPage,icon: 'ios-checkmark' },         
           { title: 'Laporan Absensi', component: LaporanabsensiPage,icon: 'ios-book-outline' },

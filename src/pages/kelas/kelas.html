@@ -22,12 +22,17 @@
 <ion-content padding>
  
   <ion-searchbar [(ngModel)]="searchTerm" ></ion-searchbar>
-  
-  <ion-list>
-    <ion-item *ngFor = "let item of datakelas | serachingpipe: searchTerm" (tap)="presentActionSheet(item)" [hidden]="item.kode_sekolah != datauser.kodesekolah" >
-      <p>{{item.kelas}}</p>
-    </ion-item>
-  </ion-list>
+  <ion-card *ngFor = "let item of datakelas | serachingpipe: searchTerm" (tap)="presentActionSheet(item)" [hidden]="item.kode_sekolah != datauser.kodesekolah" >
+      
+        <ion-card-header>
+          Card Header
+        </ion-card-header>
+      
+        <ion-card-content>
+            <p>{{item.kelas}}</p>
+        </ion-card-content>
+      
+      </ion-card>
    <ion-fab right bottom>
       <button ion-fab color="primary" (tap)="tambah()"><ion-icon name="add"></ion-icon></button>
     </ion-fab>

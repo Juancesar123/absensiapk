@@ -20,11 +20,17 @@
 
 <ion-content padding>
   <ion-searchbar [(ngModel)]="searching"></ion-searchbar>
-  <ion-list>
-    <ion-item *ngFor = "let item of listdatauseraccess | useraccesfilter: searching" (tap)="presentActionSheet(item)" [hidden]="item.kode_sekolah != datauser.kodesekolah">
-      <h2>{{item.user_access}}</h2>
-    </ion-item>
-  </ion-list>
+  <ion-card *ngFor = "let item of listdatauseraccess | useraccesfilter: searching" (tap)="presentActionSheet(item)" [hidden]="item.kode_sekolah != datauser.kodesekolah">
+      
+        <ion-card-header>
+         
+        </ion-card-header>
+      
+        <ion-card-content>
+          {{item.user_access}}
+        </ion-card-content>
+      
+      </ion-card>
    <ion-fab right bottom>
       <button ion-fab color="primary" (tap)="tambah()"><ion-icon name="add"></ion-icon></button>
     </ion-fab>

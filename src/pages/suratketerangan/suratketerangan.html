@@ -21,6 +21,7 @@
 
 
 <ion-content padding>
+  <div *ngIf="datauser.useracces == 'Guru' || datauser.useracces == 'murid' || datauser.useracces == 'pegawai'">
     <ion-card *ngFor = "let item of suratketerangan" [hidden]="item.kodesekolah != datauser.kodesekolah">
         <img src="{{item.gambar}}"/>
         <ion-card-content>
@@ -41,26 +42,59 @@
               </div>
         </ion-card-content>
         <ion-row no-padding>
-          <ion-col>
-            <button ion-button clear small color="danger" icon-start>
-              <ion-icon ios="ios-eye" md="md-eye"></ion-icon>
-              Lihat
-            </button>
-          </ion-col>
           <ion-col text-center>
-            <button ion-button clear small color="danger" icon-start (tap)="hapus(item)">
+            <button ion-button clear small block color="danger" icon-start (tap)="hapus(item)">
               <ion-icon ios="ios-trash" md="md-trash"></ion-icon>
               Hapus
             </button>
           </ion-col>
-          <ion-col text-right>
-            <button ion-button clear small color="danger" icon-start (tap)="edit(item)">
-              <ion-icon ios="ios-create" md="md-create"></ion-icon>
-              Edit
-            </button>
-    </ion-col>
       </ion-row>
       </ion-card>
+    </div>
+    <div *ngIf="datauser.useracces == 'admin' ">
+        
+    <ion-card *ngFor = "let item of suratketerangan" [hidden]="item.kodesekolah != datauser.kodesekolah"> 
+        
+          <ion-card-header>
+              {{item.nama}}
+          </ion-card-header>
+        
+          <ion-card-content>
+            <p>
+                Keterangan: {{item.keterangan}}
+             </p>
+             <div *ngIf="item.status == 'approve'">
+                <ion-badge color="secondary"><ion-icon ios="ios-checkmark" md="md-checkmark"></ion-icon> Approved</ion-badge>
+              </div>
+              <div *ngIf="item.status == 'disapprove'">
+                <ion-badge color="danger">  <ion-icon ios="ios-close" md="md-close"></ion-icon> Disapprove</ion-badge>
+            </div>
+            <div *ngIf="item.status == 'pending'">
+              <ion-badge color="warning"><ion-icon ios="ios-time" md="md-time"></ion-icon> Pending</ion-badge>
+            </div>
+          </ion-card-content>
+          <ion-row no-padding>
+              <ion-col>
+                <button ion-button clear small block color="secondary" icon-start (tap)="approve(item)">
+                    <ion-icon ios="ios-checkmark" md="md-checkmark"></ion-icon>
+                  Approve
+                </button>
+              </ion-col>
+              <ion-col text-center>
+                  <button ion-button clear small block color="primary" icon-start (tap)="download(item)">
+                      <ion-icon ios="ios-cloud-download" md="md-cloud-download"></ion-icon>
+                    Download
+                  </button>
+                </ion-col>
+                <ion-col>
+                    <button ion-button clear small block color="danger" icon-start (tap)="disaprove(item)">
+                        <ion-icon ios="ios-close" md="md-close"></ion-icon>
+                        Disapprove
+                    </button>
+                  </ion-col>
+          </ion-row>
+        </ion-card>
+      </div>
    <ion-fab right bottom>
       <button ion-fab color="primary" (tap)="tambah()"><ion-icon name="add"></ion-icon></button>
     </ion-fab>

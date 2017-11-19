@@ -2,7 +2,7 @@ import { FormeditsuratketeranganComponent } from './../../components/formeditsur
 import { SuratketeranganProvider } from './../../providers/suratketerangan/suratketerangan';
 import { ForminputsuratketeranganComponent } from './../../components/forminputsuratketerangan/forminputsuratketerangan';
 import { Component, OnInit } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController, ModalController, Platform, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController, ModalController, Platform, AlertController, ToastController } from 'ionic-angular';
 import { File } from '@ionic-native/file';
 import { Transfer, TransferObject } from '@ionic-native/transfer';
 import { FilePath } from '@ionic-native/file-path';
@@ -23,7 +23,7 @@ export class SuratketeranganPage implements OnInit{
   suratketerangan;
   datauser;
   storageDirectory: string = '';
-  constructor(public modalCtrl : ModalController, public alertCtrl:AlertController,public platform: Platform,private transfer: Transfer,public file: File,public suratketeranganservice:SuratketeranganProvider,public viewctrl:ViewController, public modalctrl: ModalController,public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public toastCtrl:ToastController,public modalCtrl : ModalController, public alertCtrl:AlertController,public platform: Platform,private transfer: Transfer,public file: File,public suratketeranganservice:SuratketeranganProvider,public viewctrl:ViewController, public modalctrl: ModalController,public navCtrl: NavController, public navParams: NavParams) {
     this.datauser = JSON.parse(localStorage.getItem('datauser'));
     this.platform.ready().then(() => {
       // make sure this is on a device, not an emulation (e.g. chrome tools device mode)
@@ -43,9 +43,19 @@ export class SuratketeranganPage implements OnInit{
         }
     });
   }
+  
   ngOnInit(){
     this.suratketeranganservice.getdata().subscribe((result) => this.suratketerangan = result);
   }
+  private presentToast(text) {
+    let toast = this.toastCtrl.create({
+      message: text,
+      duration: 3000,
+      position: 'top'
+    });
+    toast.present();
+  }
+   
   ionViewDidLoad() {
     console.log('ionViewDidLoad SuratketeranganPage');
   }
@@ -57,7 +67,20 @@ export class SuratketeranganPage implements OnInit{
     this.suratketeranganservice.getdata().subscribe((result) => this.suratketerangan = result);
     
   }
-  
+  approve(item){
+    let data = {"nama":item.nama,"keterangan":item.keterangan,"note":item.note,"gambar":item.gambar,"status" : "approve" };
+    this.suratketeranganservice.updatedata(item,data).subscribe(val =>{
+      this.presentToast('data sukses di ubah');
+      this.getdata();
+    })
+  }
+  disaprove(item){
+    let data = {"nama":item.nama,"keterangan":item.keterangan,"note":item.note,"gambar":item.gambar,"status" : "disapprove" };
+    this.suratketeranganservice.dissparove(item,data).subscribe(val =>{
+      this.presentToast('data sukses di ubah');
+      this.getdata();
+    })
+  }
   download(item) {
     this.platform.ready().then(() => {  
     // const imageLocation = `${cordova.file.applicationDirectory}www/assets/img/${Image}`;
