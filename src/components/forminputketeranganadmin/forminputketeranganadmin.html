@@ -1,0 +1,68 @@
+<!-- Generated template for the FormtambahkelasComponent component -->
+<ion-header>
+    <ion-navbar>
+      <ion-title>Input Surat Keterngan</ion-title>
+    </ion-navbar>
+  </ion-header>
+  <ion-content padding>
+      <ion-item>
+          <ion-label floating>Tanggal</ion-label>
+          <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="inputtanggal"></ion-datetime>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Pilih Jenis User</ion-label>
+            <ion-select [(ngModel)]="jenisuser">
+                <ion-option value="siswa">Siswa</ion-option>
+                <ion-option value="guru">Guru</ion-option>
+                <ion-option value="pegawai">pegawai</ion-option>
+            </ion-select>
+          </ion-item>
+          <ion-item *ngIf="jenisuser =='siswa'">
+              <ion-label floating>Pilih Siswa</ion-label>
+              <ion-select [(ngModel)]="nama">
+                  <ion-option *ngFor="let item of datasiswa" value="{{item.nama}}">{{item.nama}}</ion-option>
+              </ion-select>
+            </ion-item>
+            <ion-item *ngIf="jenisuser =='guru' || jenisuser =='pegawai'">
+                <ion-label floating>Pilih pegawai / guru</ion-label>
+                <ion-select [(ngModel)]="nama">
+                    <ion-option *ngFor="let item of datapegawai" value="{{item.Nama}}">{{item.Nama}}</ion-option>
+                </ion-select>
+              </ion-item>
+    <ion-item>
+      <button ion-button icon-left (click)="presentActionSheet()">
+        <ion-icon name="camera"></ion-icon>Select Image
+      </button>
+    </ion-item>
+    <ion-item>
+      <img src="{{pathForImage(lastImage)}}" style="width: 100%" [hidden]="lastImage === null">
+      <h3 [hidden]="lastImage !== null">Please Select Image!</h3>
+    </ion-item>
+    <ion-item *ngIf="jenisuser =='siswa'">
+      <ion-label floating>Keterangan</ion-label>
+      <ion-select [(ngModel)]="keterangan">
+          <ion-option value="izin">Izin</ion-option>
+          <ion-option value="sakit">Sakit</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item *ngIf="jenisuser =='guru' || jenisuser == 'pegawai'">
+        <ion-label floating>Keterangan</ion-label>
+        <ion-select [(ngModel)]="keterangan">
+            <ion-option value="izin">Izin</ion-option>
+            <ion-option value="sakit">Sakit</ion-option>
+            <ion-option value="cuti">Cuti</ion-option>
+            <ion-option value="dinas">Dinas</ion-option>
+        </ion-select>
+      </ion-item>
+    <ion-item>
+        <ion-label floating>Note</ion-label>
+      <ion-textarea [(ngModel)]="note"></ion-textarea>
+    </ion-item>
+    <div padding>
+      <button ion-button icon-left block (click)="uploadImage()" [disabled]="lastImage === null">
+        <ion-icon name="cloud-upload"></ion-icon>Upload</button>
+    </div>
+    <div padding>
+      <button ion-button outline block color="danger" (tap)="close()">Tutup</button>
+    </div>
+  </ion-content>

@@ -30,7 +30,7 @@
     <ion-textarea [(ngModel)]="note"></ion-textarea>
   </ion-item>
   <div padding>
-    <button ion-button icon-left (click)="uploadImage()" [disabled]="lastImage === null">
+    <button ion-button icon-left block (click)="uploadImage()" [disabled]="lastImage === null">
       <ion-icon name="cloud-upload"></ion-icon>Upload</button>
   </div>
   <div padding>

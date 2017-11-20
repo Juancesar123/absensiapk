@@ -23,11 +23,6 @@
  
   <ion-searchbar [(ngModel)]="searchTerm" ></ion-searchbar>
   <ion-card *ngFor = "let item of datakelas | serachingpipe: searchTerm" (tap)="presentActionSheet(item)" [hidden]="item.kode_sekolah != datauser.kodesekolah" >
-      
-        <ion-card-header>
-          Card Header
-        </ion-card-header>
-      
         <ion-card-content>
             <p>{{item.kelas}}</p>
         </ion-card-content>

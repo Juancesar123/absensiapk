@@ -73,8 +73,7 @@ export class MyApp {
           { title: 'Profil', component: ProfilPage,icon: 'ios-contact-outline'},
           { title: 'Chatting', component: ChattingPage,icon: 'ios-chatbubbles-outline'},
           { title: 'Absensi Finger', component: AbsensisiswaPage,icon: 'ios-checkmark' },         
-          { title: 'Laporan Absensi', component: LaporanabsensiPage,icon: 'ios-book-outline' },
-          { title: 'Surat Keterngan', component: SuratketeranganPage,icon: 'ios-book-outline' },      
+          { title: 'Laporan Absensi', component: LaporanabsensiPage,icon: 'ios-book-outline' },      
           { title: 'LogOut', component: LogoutComponent ,icon: 'ios-power-outline'},
         ];
       }else if(this.datauser.useracces == 'pegawai'){
@@ -85,7 +84,6 @@ export class MyApp {
           { title: 'Chatting', component: ChattingPage,icon: 'ios-chatbubbles-outline'},
           { title: 'Absensi Finger', component: AbsensisiswaPage,icon: 'ios-checkmark' },         
           { title: 'Laporan Absensi', component: LaporanabsensiPage,icon: 'ios-book-outline' },      
-          { title: 'Surat Keterangan', component: SuratketeranganPage,icon: 'ios-book-outline' },
           { title: 'LogOut', component: LogoutComponent ,icon: 'ios-power-outline'},
         ];
       }else if(this.datauser.useracces == 'guru'){
@@ -95,8 +93,7 @@ export class MyApp {
           { title: 'Surat Keterangan', component: SuratketeranganPage,icon: 'ios-book-outline' },
           { title: 'Chatting', component: ChattingPage,icon: 'ios-chatbubbles-outline'},
           { title: 'Absensi Finger', component: AbsensisiswaPage,icon: 'ios-checkmark' },         
-          { title: 'Laporan Absensi', component: LaporanabsensiPage,icon: 'ios-book-outline' },
-          { title: 'Surat Keterangan', component: SuratketeranganPage,icon: 'ios-book-outline' },      
+          { title: 'Laporan Absensi', component: LaporanabsensiPage,icon: 'ios-book-outline' },      
           { title: 'LogOut', component: LogoutComponent ,icon: 'ios-power-outline'},
         ];
       }else if(this.datauser.useracces == 'owner'){

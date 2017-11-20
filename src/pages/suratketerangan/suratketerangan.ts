@@ -1,3 +1,4 @@
+import { ForminputketeranganadminComponent } from './../../components/forminputketeranganadmin/forminputketeranganadmin';
 import { FormeditsuratketeranganComponent } from './../../components/formeditsuratketerangan/formeditsuratketerangan';
 import { SuratketeranganProvider } from './../../providers/suratketerangan/suratketerangan';
 import { ForminputsuratketeranganComponent } from './../../components/forminputsuratketerangan/forminputsuratketerangan';
@@ -60,8 +61,13 @@ export class SuratketeranganPage implements OnInit{
     console.log('ionViewDidLoad SuratketeranganPage');
   }
   tambah(){
-    let modalmuncul = this.modalctrl.create(ForminputsuratketeranganComponent);
-    modalmuncul.present();
+    if(this.datauser.useracces =='admin'){
+      let modalmuncul = this.modalctrl.create(ForminputketeranganadminComponent);
+      modalmuncul.present();
+    }else{
+      let modalmuncul = this.modalctrl.create(ForminputsuratketeranganComponent);
+      modalmuncul.present();
+    }  
   }
   refresh(){
     this.suratketeranganservice.getdata().subscribe((result) => this.suratketerangan = result);

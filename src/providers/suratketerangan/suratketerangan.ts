@@ -19,20 +19,20 @@ export class SuratketeranganProvider {
   getdata():Observable<suratketeranganmodel[]>{
     let header = new Headers({'content-Type':'application/json','Authorization':localStorage.getItem('token')});
     let options = new RequestOptions({headers:header});
-    return this.http.get('http://192.168.100.8:3030/tmpsuratketerangan',options).map(res => res.json().data as suratketeranganmodel[]);
+    return this.http.get('http://198.50.174.117/tmpsuratketerangan',options).map(res => res.json().data as suratketeranganmodel[]);
   }
   hapusdata(item):Observable<suratketeranganmodel[]>{
     let header = new Headers({'content-Type':'application/json','Authorization':localStorage.getItem('token')});
     let options = new RequestOptions({headers:header});
     let id = item.id;
-    return this.http.delete('http://192.168.100.8:3030/tmpsuratketerangan/'+id,options).map(res => res.json().data as suratketeranganmodel[]);
+    return this.http.delete('http://198.50.174.117/tmpsuratketerangan/'+id,options).map(res => res.json().data as suratketeranganmodel[]);
   }
   updatedata(item,data){
     let body = JSON.stringify(data);
     let id = item.id;
     let header = new Headers({'content-Type':'application/json','Authorization':localStorage.getItem('token')});
     let options = new RequestOptions({headers:header});
-    return this.http.patch('http://192.168.100.8:3030/tmpsuratketerangan/'+id,body,options).map(res => res.json().data as suratketeranganmodel[]);
+    return this.http.patch('http://198.50.174.117/tmpsuratketerangan/'+id,body,options).map(res => res.json().data as suratketeranganmodel[]);
   }
   dissparove(item,data){
     let header = new Headers({'content-Type':'application/json','Authorization':localStorage.getItem('token')});
@@ -40,6 +40,6 @@ export class SuratketeranganProvider {
     let body = JSON.stringify(data);
     let id = item.id;
     //let body = JSON.stringify(data);
-    return this.http.patch('http://192.168.100.8:3030/tmpsuratketerangan/'+id,body,options).map(res => res.json().data as suratketeranganmodel[]);
+    return this.http.patch('http://198.50.174.117/tmpsuratketerangan/'+id,body,options).map(res => res.json().data as suratketeranganmodel[]);
   }
 }

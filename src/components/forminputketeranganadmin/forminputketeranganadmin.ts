@@ -1,3 +1,5 @@
+import { DatasiswaProvider } from './../../providers/datasiswa/datasiswa';
+import { DatapegawaiProvider } from './../../providers/datapegawai/datapegawai';
 import { Component } from '@angular/core';
 import { NavController, ActionSheetController, ToastController, Platform, LoadingController, Loading, ViewController } from 'ionic-angular';
 
@@ -5,30 +7,40 @@ import { File } from '@ionic-native/file';
 import { Transfer, TransferObject } from '@ionic-native/transfer';
 import { FilePath } from '@ionic-native/file-path';
 import { Camera } from '@ionic-native/camera';
+
 /**
- * Generated class for the ForminputsuratketeranganComponent component.
+ * Generated class for the ForminputketeranganadminComponent component.
  *
  * See https://angular.io/docs/ts/latest/api/core/index/ComponentMetadata-class.html
  * for more info on Angular Components.
  */
 declare var cordova: any;
 @Component({
-  selector: 'forminputsuratketerangan',
-  templateUrl: 'forminputsuratketerangan.html'
+  selector: 'forminputketeranganadmin',
+  templateUrl: 'forminputketeranganadmin.html',
+  providers:[DatapegawaiProvider,DatasiswaProvider]
 })
-export class ForminputsuratketeranganComponent {
-
+export class ForminputketeranganadminComponent {
+  datasiswa:any;
   text: string;
-  lastImage: string = null;
+  datapegawai:any;
+   lastImage: string = null;
   loading: Loading;
   inputtanggal:string;
   keterangan:string;
   nama:string;
   note:string;
   datauser;
-  constructor(public viewctrl:ViewController,public navCtrl: NavController, private camera: Camera, private transfer: Transfer, private file: File, private filePath: FilePath, public actionSheetCtrl: ActionSheetController, public toastCtrl: ToastController, public platform: Platform, public loadingCtrl: LoadingController) {
-    console.log('Hello ForminputsuratketeranganComponent Component');
+  constructor(public viewctrl:ViewController,public navCtrl: NavController, private camera: Camera, private transfer: Transfer, private file: File, private filePath: FilePath, public actionSheetCtrl: ActionSheetController, public toastCtrl: ToastController, public platform: Platform, public loadingCtrl: LoadingController,public siswaservice:DatapegawaiProvider, public pegawaiprovider:DatasiswaProvider) {
+    this.getdatasiswa();
+    this.getdatapegawai();
     this.datauser = JSON.parse(localStorage.getItem('datauser'));
+  }
+  getdatasiswa(){
+    this.siswaservice.getdata().subscribe((result)=> this.datasiswa = result)
+  }
+  getdatapegawai(){
+    this.pegawaiprovider.getdata().subscribe((result) => this.datapegawai = result);
   }
   presentActionSheet() {
     let actionSheet = this.actionSheetCtrl.create({
@@ -134,7 +146,7 @@ export class ForminputsuratketeranganComponent {
       chunkedMode: false,
       mimeType: "multipart/form-data",
       headers: {'Authorization':localStorage.getItem('token')},
-      params : {"gambar": "http://198.50.174.117/img/"+filename,'note': this.note,"keterangan":this.keterangan,"nama":this.datauser.nama,"tanggal":this.inputtanggal,status:'pending',kodesekolah:this.datauser.kodesekolah}
+      params : {"gambar": "http://198.50.174.117/img/"+filename,'note': this.note,"keterangan":this.keterangan,"nama":this.nama,"tanggal":this.inputtanggal,status:'approve',kodesekolah:this.datauser.kodesekolah}
     };
    
     const fileTransfer: TransferObject = this.transfer.create();
@@ -156,5 +168,4 @@ export class ForminputsuratketeranganComponent {
       this.presentToast('Error while uploading file.');
     });
   }
-
 }

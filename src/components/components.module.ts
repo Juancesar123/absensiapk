@@ -20,6 +20,7 @@ import { FormeditpegawaiComponent } from './formeditpegawai/formeditpegawai';
 import { ViewdatapegawaiComponent } from './viewdatapegawai/viewdatapegawai';
 import { ForminputsuratketeranganComponent } from './forminputsuratketerangan/forminputsuratketerangan';
 import { FormeditsuratketeranganComponent } from './formeditsuratketerangan/formeditsuratketerangan';
+import { ForminputketeranganadminComponent } from './forminputketeranganadmin/forminputketeranganadmin';
 @NgModule({
 	declarations: [
 	FormdatasiswaComponent,
@@ -38,6 +39,7 @@ import { FormeditsuratketeranganComponent } from './formeditsuratketerangan/form
     ViewdatapegawaiComponent,
     ForminputsuratketeranganComponent,
     FormeditsuratketeranganComponent,
+    ForminputketeranganadminComponent,
     ],
 	imports: [
          IonicPageModule.forChild(FormdatasiswaComponent),
@@ -57,7 +59,8 @@ import { FormeditsuratketeranganComponent } from './formeditsuratketerangan/form
     FormeditpegawaiComponent,
     ViewdatapegawaiComponent,
     ForminputsuratketeranganComponent,
-    FormeditsuratketeranganComponent],
+    FormeditsuratketeranganComponent,
+    ForminputketeranganadminComponent],
     providers:[
         EmojiProvider,
     ]

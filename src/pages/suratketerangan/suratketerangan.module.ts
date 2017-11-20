@@ -1,3 +1,4 @@
+import { ForminputketeranganadminComponent } from './../../components/forminputketeranganadmin/forminputketeranganadmin';
 import { FormeditsuratketeranganComponent } from './../../components/formeditsuratketerangan/formeditsuratketerangan';
 import { ForminputsuratketeranganComponent } from './../../components/forminputsuratketerangan/forminputsuratketerangan';
 import { NgModule } from '@angular/core';
@@ -11,6 +12,6 @@ import { SuratketeranganPage } from './suratketerangan';
   imports: [
     IonicPageModule.forChild(SuratketeranganPage),
   ],
-  entryComponents:[ForminputsuratketeranganComponent,FormeditsuratketeranganComponent]
+  entryComponents:[ForminputsuratketeranganComponent,FormeditsuratketeranganComponent,ForminputketeranganadminComponent]
 })
 export class SuratketeranganPageModule {}

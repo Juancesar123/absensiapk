@@ -27,16 +27,16 @@ export class AprrovalregisterPage implements OnInit{
   constructor(private push: Push,public navCtrl: NavController, public navParams: NavParams, public approv:AprovalregisterProvider) {
     this.datauser = JSON.parse(localStorage.getItem('datauser'));
     // to check if we have permission
-    this.push.hasPermission()
-      .then((res: any) => {
+    // this.push.hasPermission()
+    //   .then((res: any) => {
     
-        if (res.isEnabled) {
-          console.log('We have permission to send push notifications');
-        } else {
-          console.log('We do not have permission to send push notifications');
-        }
+    //     if (res.isEnabled) {
+    //       console.log('We have permission to send push notifications');
+    //     } else {
+    //       console.log('We do not have permission to send push notifications');
+    //     }
     
-      });
+    //   });
     
   }
 

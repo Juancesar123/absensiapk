@@ -21,7 +21,7 @@
 
 
 <ion-content padding>
-  <div *ngIf="datauser.useracces == 'Guru' || datauser.useracces == 'murid' || datauser.useracces == 'pegawai'">
+  <div *ngIf="datauser.useracces == 'guru' || datauser.useracces == 'siswa' || datauser.useracces == 'pegawai'">
     <ion-card *ngFor = "let item of suratketerangan" [hidden]="item.kodesekolah != datauser.kodesekolah">
         <img src="{{item.gambar}}"/>
         <ion-card-content>
@@ -55,11 +55,11 @@
         
     <ion-card *ngFor = "let item of suratketerangan" [hidden]="item.kodesekolah != datauser.kodesekolah"> 
         
-          <ion-card-header>
-              {{item.nama}}
-          </ion-card-header>
-        
+      <img src="{{item.gambar}}"/>
           <ion-card-content>
+              <ion-card-title>
+                  {{item.nama}}
+                   </ion-card-title>
             <p>
                 Keterangan: {{item.keterangan}}
              </p>
@@ -81,10 +81,6 @@
                 </button>
               </ion-col>
               <ion-col text-center>
-                  <button ion-button clear small block color="primary" icon-start (tap)="download(item)">
-                      <ion-icon ios="ios-cloud-download" md="md-cloud-download"></ion-icon>
-                    Download
-                  </button>
                 </ion-col>
                 <ion-col>
                     <button ion-button clear small block color="danger" icon-start (tap)="disaprove(item)">
