@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { FormubahprofilComponent } from "../../components/formubahprofil/formubahprofil";
 
 /**
  * Generated class for the ProfilPage page.
@@ -20,7 +21,7 @@ export class ProfilPage {
   nomorinduk:string;
   useraccess:string;
   title:string;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public modalctrl: ModalController) {
     this.alldata = JSON.parse(localStorage.getItem('datauser'));
     this.gambar = this.alldata.gambar;
     this.nama = this.alldata.nama;
@@ -32,5 +33,8 @@ export class ProfilPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilPage');
   }
-
+  update(){
+   let profileModal = this.modalctrl.create(FormubahprofilComponent);
+    profileModal.present();
+  }
 }

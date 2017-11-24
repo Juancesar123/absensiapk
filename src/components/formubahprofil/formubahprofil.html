@@ -1,14 +1,10 @@
 <!-- Generated template for the FormtambahkelasComponent component -->
 <ion-header>
   <ion-navbar>
-    <ion-title>Ubah Surat Keterngan</ion-title>
+    <ion-title>Ubah Foto</ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content padding>
-    <ion-item>
-        <ion-label floating>Tanggal</ion-label>
-        <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="inputtanggal"></ion-datetime>
-      </ion-item>
   <ion-item>
     <button ion-button icon-left (click)="presentActionSheet()">
       <ion-icon name="camera"></ion-icon>Select Image
@@ -17,17 +13,6 @@
   <ion-item>
     <img src="{{pathForImage(lastImage)}}" style="width: 100%" [hidden]="lastImage === null">
     <h3 [hidden]="lastImage !== null">Please Select Image!</h3>
-  </ion-item>
-  <ion-item>
-    <ion-label floating>Keterangan</ion-label>
-    <ion-select [(ngModel)]="keterangan">
-        <ion-option value="izin">Izin</ion-option>
-        <ion-option value="sakit">Sakit</ion-option>
-    </ion-select>
-  </ion-item>
-  <ion-item>
-      <ion-label floating>Note</ion-label>
-    <ion-textarea [(ngModel)]="note"></ion-textarea>
   </ion-item>
   <div padding>
     <button ion-button icon-left block (click)="uploadImage()" [disabled]="lastImage === null">

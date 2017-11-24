@@ -58,7 +58,7 @@ export class MyApp {
           { title: 'Profil', component: ProfilPage,icon: 'ios-contact-outline'},
           { title: 'Import Data Pegawai', component: ImportdatapegawaiPage,icon: 'logo-buffer'},
           { title: 'Import Data Siswa', component: ImportdatasiswaPage,icon: 'logo-buffer'},
-          { title: 'Data Entry Attd', component:DataentryattdPage,icon: 'logo-buffer'},
+          // { title: 'Data Entry Attd', component:DataentryattdPage,icon: 'logo-buffer'},
           { title: 'Chatting', component: ChattingPage,icon: 'ios-chatbubbles-outline'},
           { title: 'Kelas', component: KelasPage,icon: 'logo-buffer'},
           { title: 'User Access', component: UseraccessPage,icon: 'ios-key-outline' },

@@ -18,11 +18,19 @@
     <img src="{{pathForImage(lastImage)}}" style="width: 100%" [hidden]="lastImage === null">
     <h3 [hidden]="lastImage !== null">Please Select Image!</h3>
   </ion-item>
-  <ion-item>
-    <ion-label floating>Keterangan</ion-label>
+  <ion-item *ngIf = "datauser.useracces =='siswa' || datauser.useraccess=='guru'">
+    <ion-label floating >Keterangan</ion-label>
     <ion-select [(ngModel)]="keterangan">
         <ion-option value="izin">Izin</ion-option>
         <ion-option value="sakit">Sakit</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item *ngIf = "datauser.useracces =='pegawai'">
+    <ion-label floating >Keterangan</ion-label>
+    <ion-select [(ngModel)]="keterangan">
+        <ion-option value="izin">Izin</ion-option>
+        <ion-option value="sakit">Sakit</ion-option>
+        <ion-option value="cuti">Cuti</ion-option>
     </ion-select>
   </ion-item>
   <ion-item>

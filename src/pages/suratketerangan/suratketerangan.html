@@ -9,7 +9,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Surat Keteragan</ion-title>
+    <ion-title>Surat Keterangan</ion-title>
     <ion-buttons end>
         <button ion-button icon-only (tap)="refresh()">
           <ion-icon name="refresh"></ion-icon>
@@ -22,7 +22,7 @@
 
 <ion-content padding>
   <div *ngIf="datauser.useracces == 'guru' || datauser.useracces == 'siswa' || datauser.useracces == 'pegawai'">
-    <ion-card *ngFor = "let item of suratketerangan" [hidden]="item.kodesekolah != datauser.kodesekolah">
+    <ion-card *ngFor = "let item of suratketerangan" [hidden]="item.kodesekolah != datauser.kodesekolah || item.nama != datauser.nama">
         <img src="{{item.gambar}}"/>
         <ion-card-content>
           <ion-card-title>

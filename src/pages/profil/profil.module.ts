@@ -1,3 +1,4 @@
+import { FormubahprofilComponent } from './../../components/formubahprofil/formubahprofil';
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { ProfilPage } from './profil';
@@ -9,5 +10,6 @@ import { ProfilPage } from './profil';
   imports: [
     IonicPageModule.forChild(ProfilPage),
   ],
+  entryComponents: [FormubahprofilComponent]
 })
 export class ProfilPageModule {}

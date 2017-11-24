@@ -19,5 +19,15 @@
   </ion-header>
   
 <ion-content padding>
-
+    <ion-item>
+        <ion-label floating>Dari Tanggal</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="tanggalawal"></ion-datetime>
+      </ion-item>
+    <ion-item>
+        <ion-label floating>Sampai Tanggal</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="tanggalakhir"></ion-datetime>
+      </ion-item>
+      <div padding>
+          <button ion-button outline block color="primary" (tap)="simpan()">Submit</button>
+      </div>
 </ion-content>

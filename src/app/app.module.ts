@@ -47,6 +47,7 @@ import { DatasiswaProvider } from '../providers/datasiswa/datasiswa';
 import { ContactusProvider } from '../providers/contactus/contactus';
 import { UniqueDeviceID } from '@ionic-native/unique-device-id';
 import { SuratketeranganProvider } from '../providers/suratketerangan/suratketerangan';
+import { LaporanabsensiProvider } from '../providers/laporanabsensi/laporanabsensi';
 //import {Push} from '@ionic-native/Push';
 @NgModule({
   declarations: [
@@ -106,7 +107,8 @@ import { SuratketeranganProvider } from '../providers/suratketerangan/suratketer
     SettingjamProvider,
     DatasiswaProvider,
     ContactusProvider,
-    SuratketeranganProvider
+    SuratketeranganProvider,
+    LaporanabsensiProvider
   ]
 })
 export class AppModule {}

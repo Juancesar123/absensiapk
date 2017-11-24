@@ -1,3 +1,4 @@
+import { LaporanabsensiProvider } from './../../providers/laporanabsensi/laporanabsensi';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
@@ -12,14 +13,28 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 @Component({
   selector: 'page-laporanabsensi',
   templateUrl: 'laporanabsensi.html',
+  providers:[LaporanabsensiProvider]
 })
 export class LaporanabsensiPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  tanggalawal:String;
+  tanggalakhir:String;
+  total;
+  constructor(public navCtrl: NavController, public navParams: NavParams,public laporanservice:LaporanabsensiProvider) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LaporanabsensiPage');
   }
-
+  simpan(){
+    this.laporanservice.getdata().subscribe(result => {
+      //console.log(this.tanggalawal);
+      result.forEach(val=>{
+          if(val.Tanggal == this.tanggalawal || val.Tanggal == this.tanggalakhir){
+            this.total += val.Sakit;
+            console.log(val);
+            console.log(this.total)
+          }
+      })
+    })
+  }
 }
