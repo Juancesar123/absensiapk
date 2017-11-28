@@ -134,7 +134,7 @@ export class ForminputsuratketeranganComponent {
       chunkedMode: false,
       mimeType: "multipart/form-data",
       headers: {'Authorization':localStorage.getItem('token')},
-      params : {"gambar": "http://198.50.174.117/img/"+filename,'note': this.note,"keterangan":this.keterangan,"nama":this.datauser.nama,"tanggal":this.inputtanggal,status:'pending',kodesekolah:this.datauser.kodesekolah}
+      params : {"gambar": "http://198.50.174.117/img/"+filename,'note': this.note,"keterangan":this.keterangan,"nama":this.datauser.nama,"tanggal":this.inputtanggal,status:'pending',kodesekolah:this.datauser.kodesekolah,"userid":this.datauser.id,"nomorinduk":this.datauser.nomorinduk,"useracces":this.datauser.useracces}
     };
    
     const fileTransfer: TransferObject = this.transfer.create();

@@ -30,7 +30,7 @@
       <div padding>
           <button ion-button outline block color="primary" (tap)="simpan()">Submit</button>
       </div>
-      <ion-card>
+      <ion-card *ngIf="datauser.useracces=='siswa'">
         <img src="{{datauser.gambar}}"/>
         <ion-card-content>
           <ion-card-title>
@@ -50,6 +50,35 @@
           </p>
           <p>
             Alpa : {{alpa}}
+          </p>
+        </ion-card-content>
+      </ion-card>
+      <ion-card *ngIf="datauser.useracces=='pegawai' || datauser.useracces=='guru'">
+        <img src="{{datauser.gambar}}"/>
+        <ion-card-content>
+          <ion-card-title>
+            Laporan Absensi {{datauser.nama}} dari tanggal {{tanggalawal}} sampai tanggal {{tanggalakhir}}
+            </ion-card-title>
+          <p>
+            Hadir : {{totalhadir}}
+          </p>
+          <p>
+            Ijin : {{ijin}}
+          </p>
+          <p>
+            Sakit : {{totalsakit}}
+          </p>
+          <p>
+            Saki dengan Surat : {{totalsakitSD}}
+          </p>
+          <p>
+            Alpa : {{alpa}}
+          </p>
+          <p>
+            Cuti : {{cuti}}
+          </p>
+          <p>
+            Dinas : {{dinas}}
           </p>
         </ion-card-content>
       </ion-card>

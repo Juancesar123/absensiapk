@@ -22,6 +22,7 @@ import { ForminputsuratketeranganComponent } from './forminputsuratketerangan/fo
 import { FormeditsuratketeranganComponent } from './formeditsuratketerangan/formeditsuratketerangan';
 import { ForminputketeranganadminComponent } from './forminputketeranganadmin/forminputketeranganadmin';
 import { FormubahprofilComponent } from './formubahprofil/formubahprofil';
+import { UploaddatasiswaComponent } from './uploaddatasiswa/uploaddatasiswa';
 @NgModule({
 	declarations: [
 	FormdatasiswaComponent,
@@ -42,6 +43,7 @@ import { FormubahprofilComponent } from './formubahprofil/formubahprofil';
     FormeditsuratketeranganComponent,
     ForminputketeranganadminComponent,
     FormubahprofilComponent,
+    UploaddatasiswaComponent,
     ],
 	imports: [
          IonicPageModule.forChild(FormdatasiswaComponent),
@@ -63,7 +65,8 @@ import { FormubahprofilComponent } from './formubahprofil/formubahprofil';
     ForminputsuratketeranganComponent,
     FormeditsuratketeranganComponent,
     ForminputketeranganadminComponent,
-    FormubahprofilComponent],
+    FormubahprofilComponent,
+    UploaddatasiswaComponent],
     providers:[
         EmojiProvider,
     ]

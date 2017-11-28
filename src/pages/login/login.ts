@@ -1,3 +1,4 @@
+import { MyApp } from './../../app/app.component';
 import { ContactusPage } from './../contactus/contactus';
 import { HomePage } from './../home/home';
 import { AuthenticationProvider } from './../../providers/authentication/authentication';

@@ -20,5 +20,18 @@
 
 
 <ion-content padding>
-    <h1>Under Development</h1>
+   <!-- Generated template for the FormtambahkelasComponent component -->
+  <ion-item>
+    <button ion-button icon-left (click)="presentActionSheet()">
+      <ion-icon name="camera"></ion-icon>Select Image
+    </button>
+  </ion-item>
+  <ion-item>
+    <img src="{{pathForImage(lastImage)}}" style="width: 100%" [hidden]="lastImage === null">
+    <h3 [hidden]="lastImage !== null">Please Select Image!</h3>
+  </ion-item>
+  <div padding>
+    <button ion-button icon-left block (click)="uploadImage()" [disabled]="lastImage === null">
+      <ion-icon name="cloud-upload"></ion-icon>Upload</button>
+  </div>
 </ion-content>
