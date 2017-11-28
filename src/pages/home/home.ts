@@ -9,7 +9,9 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 user;
+datauser;
   constructor(public navCtrl: NavController) {
+    this.datauser = JSON.parse(localStorage.getItem('datauser'));
     if(localStorage.getItem('token')){
       
     }else{

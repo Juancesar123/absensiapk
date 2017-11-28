@@ -139,7 +139,6 @@ export class ForminputketeranganadminComponent {
    
     // File name only
     var filename = this.lastImage;
-    console.log(filename);
     var options = {
       fileKey: 'file',
       fileName: filename,
@@ -155,11 +154,9 @@ export class ForminputketeranganadminComponent {
       content: 'Uploading...',
     });
     this.loading.present();
-   console.log(targetPath);
     // Use the FileTransfer to upload the image
     fileTransfer.upload(targetPath, url, options).then(data => {
       this.loading.dismissAll()
-      console.log(data);
       this.presentToast('Image succesful uploaded.');
     }, err => {
       this.loading.dismissAll()

@@ -44,33 +44,41 @@
   dependencies:
     tsickle "^0.21.0"
 
-"@firebase/webchannel-wrapper@^0.2.1":
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/@firebase/webchannel-wrapper/-/webchannel-wrapper-0.2.1.tgz#2c4dbc15edd1de4f656d543a6f512ded7978ef72"
-
-"@ionic-native/camera@^4.2.1":
-  version "4.3.1"
-  resolved "https://registry.yarnpkg.com/@ionic-native/camera/-/camera-4.3.1.tgz#b844fa3903f16d235a2316def243dd92e8c9bc54"
+"@ionic-native/camera@^4.4.0":
+  version "4.4.2"
+  resolved "https://registry.yarnpkg.com/@ionic-native/camera/-/camera-4.4.2.tgz#bbdd689a20652bd300ce9fed8a5d5bc5a6d38187"
 
 "@ionic-native/core@3.12.1":
   version "3.12.1"
   resolved "https://registry.yarnpkg.com/@ionic-native/core/-/core-3.12.1.tgz#5b7c7a4f5adfc8da0b9197e1843e5893acf66021"
 
-"@ionic-native/file-path@^4.2.1":
-  version "4.3.1"
-  resolved "https://registry.yarnpkg.com/@ionic-native/file-path/-/file-path-4.3.1.tgz#1e7b5b6fa4e7013edea3f92155601ad662ec191e"
+"@ionic-native/file-path@^4.4.0":
+  version "4.4.2"
+  resolved "https://registry.yarnpkg.com/@ionic-native/file-path/-/file-path-4.4.2.tgz#83b43087cce5356a1c9f140c5744e90c92e71e91"
 
 "@ionic-native/file-transfer@^4.2.1":
   version "4.3.1"
   resolved "https://registry.yarnpkg.com/@ionic-native/file-transfer/-/file-transfer-4.3.1.tgz#cb493cc68ff530bf6636890f2984e2468f9e6c38"
 
-"@ionic-native/file@^4.2.1":
-  version "4.3.1"
-  resolved "https://registry.yarnpkg.com/@ionic-native/file/-/file-4.3.1.tgz#3f179aed0451b0d7597af39525c7fd1c6156848d"
+"@ionic-native/file@^4.4.0":
+  version "4.4.2"
+  resolved "https://registry.yarnpkg.com/@ionic-native/file/-/file-4.4.2.tgz#aa02ab0290cda9d5fc4ae15a42f716b16dfb3075"
+
+"@ionic-native/network@^4.4.2":
+  version "4.4.2"
+  resolved "https://registry.yarnpkg.com/@ionic-native/network/-/network-4.4.2.tgz#adc29d45463450730cae001c352db515b37a5f7d"
+
+"@ionic-native/push@^4.3.3":
+  version "4.4.2"
+  resolved "https://registry.yarnpkg.com/@ionic-native/push/-/push-4.4.2.tgz#3e0c75a8a0012e2c3537669a88172a7d9ce2ad25"
 
 "@ionic-native/splash-screen@3.12.1":
   version "3.12.1"
   resolved "https://registry.yarnpkg.com/@ionic-native/splash-screen/-/splash-screen-3.12.1.tgz#1c2e468e225d5b90cad7b48fc05505d4c761ace6"
+
+"@ionic-native/sqlite@^4.3.3":
+  version "4.4.2"
+  resolved "https://registry.yarnpkg.com/@ionic-native/sqlite/-/sqlite-4.4.2.tgz#b681a4c237b5a528b48170cbdaa93ff2b6a60bfa"
 
 "@ionic-native/status-bar@3.12.1":
   version "3.12.1"
@@ -79,6 +87,10 @@
 "@ionic-native/transfer@^3.14.0":
   version "3.14.0"
   resolved "https://registry.yarnpkg.com/@ionic-native/transfer/-/transfer-3.14.0.tgz#43fb7b91272f245133063b0a1a5947927b09b21a"
+
+"@ionic-native/unique-device-id@4.3.3":
+  version "4.3.3"
+  resolved "https://registry.yarnpkg.com/@ionic-native/unique-device-id/-/unique-device-id-4.3.3.tgz#2aace491cb07b6c4391c4620316f414e678ae9be"
 
 "@ionic-tools/emoji-picker@^1.3.9":
   version "1.3.9"
@@ -453,6 +465,10 @@ babel-messages@^6.23.0:
   dependencies:
     babel-runtime "^6.22.0"
 
+babel-plugin-add-header-comment@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/babel-plugin-add-header-comment/-/babel-plugin-add-header-comment-1.0.3.tgz#511c4901062640d5a480b4ac3edd6944195850ec"
+
 babel-plugin-minify-builtins@^0.1.3:
   version "0.1.3"
   resolved "https://registry.yarnpkg.com/babel-plugin-minify-builtins/-/babel-plugin-minify-builtins-0.1.3.tgz#4f21a7dcb51f91a04ea71d47ff0e8e3b05fec021"
@@ -724,6 +740,10 @@ body@^5.1.0:
     error "^7.0.0"
     raw-body "~1.1.0"
     safe-json-parse "~1.0.1"
+
+bodymovin@^4.8.0:
+  version "4.13.0"
+  resolved "https://registry.yarnpkg.com/bodymovin/-/bodymovin-4.13.0.tgz#06d97c0130e2334dccb33bea638136f88a74540b"
 
 boom@2.x.x:
   version "2.10.1"
@@ -1124,6 +1144,10 @@ cordova-plugin-filepath@^1.0.2:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/cordova-plugin-filepath/-/cordova-plugin-filepath-1.1.0.tgz#e417a0a395b9712916cd762d1c7cc38408c3a05b"
 
+cordova-plugin-network-information@^1.3.4:
+  version "1.3.4"
+  resolved "https://registry.yarnpkg.com/cordova-plugin-network-information/-/cordova-plugin-network-information-1.3.4.tgz#28f426cc2659174dc622a07180f9ba0d855f7383"
+
 cordova-plugin-splashscreen@^4.0.3:
   version "4.0.3"
   resolved "https://registry.yarnpkg.com/cordova-plugin-splashscreen/-/cordova-plugin-splashscreen-4.0.3.tgz#773cd1363c1f3bacb9901663e9e3793dd3e0a19d"
@@ -1132,6 +1156,10 @@ cordova-plugin-statusbar@^2.2.2:
   version "2.2.3"
   resolved "https://registry.yarnpkg.com/cordova-plugin-statusbar/-/cordova-plugin-statusbar-2.2.3.tgz#51c5e02ad433bebd0b0dc977a446eb91dfee1502"
 
+cordova-plugin-uniquedeviceid@^1.3.2:
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/cordova-plugin-uniquedeviceid/-/cordova-plugin-uniquedeviceid-1.3.2.tgz#be05947af2fd1815cb8e3407d72df68c8522fa96"
+
 cordova-plugin-whitelist@^1.3.1:
   version "1.3.2"
   resolved "https://registry.yarnpkg.com/cordova-plugin-whitelist/-/cordova-plugin-whitelist-1.3.2.tgz#5b6335feb9f5301f3c013b9096cb8885bdbd5076"
@@ -1139,6 +1167,16 @@ cordova-plugin-whitelist@^1.3.1:
 cordova-registry-mapper@^1.1.8:
   version "1.1.15"
   resolved "https://registry.yarnpkg.com/cordova-registry-mapper/-/cordova-registry-mapper-1.1.15.tgz#e244b9185b8175473bff6079324905115f83dc7c"
+
+cordova-sqlite-storage-dependencies@1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/cordova-sqlite-storage-dependencies/-/cordova-sqlite-storage-dependencies-1.0.4.tgz#8279afc8d83b0161bfa7dd9c228a827f5dd8145e"
+
+cordova-sqlite-storage@^2.1.0:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/cordova-sqlite-storage/-/cordova-sqlite-storage-2.1.2.tgz#fb3ccc842d088fde5513b7d3160a88319fb72ea4"
+  dependencies:
+    cordova-sqlite-storage-dependencies "1.0.4"
 
 core-js@>=2.4.1, core-js@^2.4.0, core-js@^2.5.0:
   version "2.5.1"
@@ -1675,11 +1713,10 @@ find-up@^2.0.0:
   dependencies:
     locate-path "^2.0.0"
 
-firebase@^4.5.0:
-  version "4.5.0"
-  resolved "https://registry.yarnpkg.com/firebase/-/firebase-4.5.0.tgz#e0973a9803b74c4c9d73d19f874712e6e9d16ba7"
+firebase@^3.9.*:
+  version "3.9.0"
+  resolved "https://registry.yarnpkg.com/firebase/-/firebase-3.9.0.tgz#c4237f50f58eeb25081b1839d6cbf175f8f7ed9b"
   dependencies:
-    "@firebase/webchannel-wrapper" "^0.2.1"
     dom-storage "^2.0.2"
     faye-websocket "0.9.3"
     jsonwebtoken "^7.3.0"
@@ -2069,6 +2106,10 @@ inline-process-browser@^1.0.0:
   dependencies:
     falafel "^1.0.1"
     through2 "^0.6.5"
+
+install@^0.8.2:
+  version "0.8.9"
+  resolved "https://registry.yarnpkg.com/install/-/install-0.8.9.tgz#9f4b5c0d1851ef872e9df85e4f7162d4e5dcdbed"
 
 interpret@^1.0.0:
   version "1.0.4"
@@ -2709,9 +2750,13 @@ minimist@^1.1.3, minimist@^1.2.0:
   dependencies:
     minimist "0.0.8"
 
-moment@2.x.x, moment@^2.18.1:
+moment@2.x.x:
   version "2.18.1"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.18.1.tgz#c36193dd3ce1c2eed2adb7c802dbbc77a81b1c0f"
+
+moment@^2.19.2:
+  version "2.19.2"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.19.2.tgz#8a7f774c95a64550b4c7ebd496683908f9419dbe"
 
 ms@0.7.1:
   version "0.7.1"
@@ -2728,6 +2773,12 @@ nan@^2.3.0, nan@^2.3.2:
 negotiator@0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.1.tgz#2b327184e8992101177b28563fb5e7102acd0ca9"
+
+ng-lottie@^0.2.2:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/ng-lottie/-/ng-lottie-0.2.2.tgz#e59c7f1298446129e748e046b6e70ffd8d5b0d01"
+  dependencies:
+    bodymovin "^4.8.0"
 
 node-gyp@^3.3.1:
   version "3.6.2"
@@ -3081,6 +3132,13 @@ performance-now@^0.2.0:
 performance-now@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/performance-now/-/performance-now-2.1.0.tgz#6309f4e0e5fa913ec1c69307ae364b4b377c9e7b"
+
+phonegap-plugin-push@^2.0.0:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/phonegap-plugin-push/-/phonegap-plugin-push-2.1.1.tgz#f87d61234fd1a69da06424e638a8de7b098c33ed"
+  dependencies:
+    babel-plugin-add-header-comment "^1.0.3"
+    install "^0.8.2"
 
 pify@^2.0.0:
   version "2.3.0"

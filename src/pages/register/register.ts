@@ -42,11 +42,11 @@ export class RegisterPage {
       nomorhp:this.nomorhp,
       nama:this.nama,
       useracces:this.useraccess,
-      title:'Administrator',
+      title: this.useraccess,
       namasekolah:this.namasekolah,
       kodesekolah:this.kodesekolah,
       password:this.password,
-      gambar:'defaultimage.png',
+      gambar:'http://198.50.174.117/defaultimage.png',
       //deviceid:deviceid,
       status:'0',
     }

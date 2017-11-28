@@ -24,6 +24,7 @@ export class DatapegawaiPage {
   datapegawai;
   items;
   datauser;
+  huruf;
   ngOnInit(){
     this.pegawaiservice.getdata().subscribe((result) => this.datapegawai = result);
  }  

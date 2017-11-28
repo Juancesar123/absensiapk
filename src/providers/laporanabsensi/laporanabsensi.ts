@@ -14,12 +14,19 @@ import 'rxjs/add/operator/map';
 export class LaporanabsensiProvider {
 
   constructor(public http: Http) {
-    console.log('Hello LaporanabsensiProvider Provider');
+    
   }
   getdata() : Observable <Laporanabsensimodel[]>{
     let header = new Headers({'Authorization':localStorage.getItem('token')});
     let options = new RequestOptions({headers:header});
-    return this.http.get('http://192.168.100.8:3030/laporanabsensi',options).map(res => res.json().data as Laporanabsensimodel[]);
+    return this.http.get('http://198.50.174.117/laporanabsensi',options).map(res => res.json() as Laporanabsensimodel[]);
+
+  }
+  simpandata(data) : Observable <Laporanabsensimodel[]>{
+    let header = new Headers({'Content-Type':'Application/json','Authorization':localStorage.getItem('token')});
+    let options = new RequestOptions({headers:header});
+    let body = JSON.stringify(data);
+    return this.http.post('http://198.50.174.117/laporanabsensi',body,options).map(res => res.json() as Laporanabsensimodel[]);
 
   }
 }

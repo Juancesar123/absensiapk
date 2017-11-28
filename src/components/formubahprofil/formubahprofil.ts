@@ -1,3 +1,4 @@
+import { AuthenticationProvider } from './../../providers/authentication/authentication';
 import { Component } from '@angular/core';
 import { NavController, ActionSheetController, ToastController, Platform, LoadingController, Loading, ViewController } from 'ionic-angular';
 
@@ -15,16 +16,20 @@ import { Camera } from '@ionic-native/camera';
 declare var cordova: any;
 @Component({
   selector: 'formubahprofil',
-  templateUrl: 'formubahprofil.html'
+  templateUrl: 'formubahprofil.html',
+  providers:[AuthenticationProvider]
 })
 export class FormubahprofilComponent {
   loading: Loading;
-
+  datauser;
   text: string;
+  huruf;
   lastImage: string = null;
-  constructor(public viewctrl:ViewController,public navCtrl: NavController, private camera: Camera, private transfer: Transfer, private file: File, private filePath: FilePath, public actionSheetCtrl: ActionSheetController, public toastCtrl: ToastController, public platform: Platform, public loadingCtrl: LoadingController) {
+  constructor(public auth:AuthenticationProvider,public viewctrl:ViewController,public navCtrl: NavController, private camera: Camera, private transfer: Transfer, private file: File, private filePath: FilePath, public actionSheetCtrl: ActionSheetController, public toastCtrl: ToastController, public platform: Platform, public loadingCtrl: LoadingController) {
     console.log('Hello FormubahprofilComponent Component');
-    this.text = 'Hello World';
+      this.datauser = JSON.parse(localStorage.getItem('datauser'));
+      
+    this.huruf = JSON.parse(localStorage.getItem('huruf'))
   }
   close(){
     this.viewctrl.dismiss();
@@ -116,41 +121,62 @@ export class FormubahprofilComponent {
   }
   public uploadImage() {
     // Destination URL
-    var url = "http://192.168.100.8:3030/tmpsuratketerangan";
-   
-    // File for Upload
+    var url = "http://198.50.174.117/users";
+    let databaru = this.datauser.nomorinduk;
+    this.auth.hapusdata(databaru).subscribe(val =>{
+        // File for Upload
+        console.log(val)
     var targetPath = this.pathForImage(this.lastImage);
-   
-    // File name only
-    var filename = this.lastImage;
-    console.log(filename);
-    var options = {
-      fileKey: 'file',
-      fileName: filename,
-      chunkedMode: false,
-      mimeType: "multipart/form-data",
-      headers: {'Authorization':localStorage.getItem('token')},
-      // params : {"gambar": "http://192.168.100.8:3030/img/"+filename,'note': this.note,"keterangan":this.keterangan,"nama":this.datauser.nama,"tanggal":this.inputtanggal,status:'pending',kodesekolah:this.datauser.kodesekolah}
-    };
-   
-    const fileTransfer: TransferObject = this.transfer.create();
-   
-    this.loading = this.loadingCtrl.create({
-      content: 'Uploading...',
+    
+     // File name only
+     
+     var filename = this.lastImage;
+     let data = {
+       nomorinduk:this.datauser.nomorinduk,
+       uid:'0',
+       email:this.datauser.email,
+       nomorhp:this.datauser.nomorhp,
+       nama:this.datauser.nama,
+       useracces:this.datauser.useracces,
+       title:'Administrator',
+       namasekolah:this.datauser.namasekolah,
+       kodesekolah:this.datauser.kodesekolah,
+       password:this.huruf.huruf,
+       "gambar": "http://198.50.174.117/imgprofile/"+filename,
+       //deviceid:deviceid,
+       status:'1',
+     
+       }
+     console.log(filename);
+     var options = {
+       fileKey: 'file',
+       fileName: filename,
+       chunkedMode: false,
+       mimeType: "multipart/form-data",
+       headers: {'Authorization':localStorage.getItem('token')},
+        params : data
+     };
+    
+     const fileTransfer: TransferObject = this.transfer.create();
+    
+     this.loading = this.loadingCtrl.create({
+       content: 'Uploading...',
+     });
+     this.loading.present();
+    console.log(targetPath);
+     // Use the FileTransfer to upload the image
+     fileTransfer.upload(targetPath, url, options).then(data => {
+       this.loading.dismissAll()
+       console.log(data);
+       this.presentToast('Image succesful uploaded.');
+     }, err => {
+       this.loading.dismissAll()
+       // console.log(ata);
+       console.log(err);
+       this.presentToast('Error while uploading file.');
+     });
     });
-    this.loading.present();
-   console.log(targetPath);
-    // Use the FileTransfer to upload the image
-    fileTransfer.upload(targetPath, url, options).then(data => {
-      this.loading.dismissAll()
-      console.log(data);
-      this.presentToast('Image succesful uploaded.');
-    }, err => {
-      this.loading.dismissAll()
-      // console.log(ata);
-      console.log(err);
-      this.presentToast('Error while uploading file.');
-    });
+    
   }
 
 }

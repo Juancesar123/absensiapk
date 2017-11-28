@@ -1,3 +1,4 @@
+import { SplashscreenPageModule } from './../pages/splashscreen/splashscreen.module';
 import { SuratketeranganPageModule } from './../pages/suratketerangan/suratketerangan.module';
 import { DataentryattdPageModule } from './../pages/dataentryattd/dataentryattd.module';
 import { ImportdatasiswaPageModule } from './../pages/importdatasiswa/importdatasiswa.module';
@@ -21,6 +22,7 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import {Push} from'@ionic-native/push';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import "hammerjs";
+import { LottieAnimationViewModule } from 'ng-lottie';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
@@ -40,6 +42,7 @@ import { UseraccessProvider } from '../providers/useraccess/useraccess';
 import { EmojiProvider } from '../providers/emoji/emoji';
 import { RelativeTimePipe } from "../pipes/relative-time/relative-time";
 import { RelativeTime } from "./timepipes";
+import { Network } from '@ionic-native/network';
 import { EmojiPickerModule } from '@ionic-tools/emoji-picker';
 import { SettingjamPageModule } from '../pages/settingjam/settingjam.module';
 import { SettingjamProvider } from '../providers/settingjam/settingjam';
@@ -70,13 +73,15 @@ import { LaporanabsensiProvider } from '../providers/laporanabsensi/laporanabsen
     KelasPageModule,
     LaporanabsensiPageModule,
     ChattingPageModule,
+    SplashscreenPageModule,
     AprrovalregisterPageModule,
     UseraccessPageModule,
     SuratketeranganPageModule,
     AbsensisiswaPageModule,
     SettingjamPageModule,
     EmojiPickerModule.forRoot(),
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+   
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -86,6 +91,7 @@ import { LaporanabsensiProvider } from '../providers/laporanabsensi/laporanabsen
     LogoutComponent
   ],
   providers: [
+    Network,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},

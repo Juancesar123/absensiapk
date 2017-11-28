@@ -56,6 +56,9 @@ export class LoginPage {
       position:'top',
       duration:2000
     })
+    let insert ={
+      huruf:this.password
+    }
     this.auth.login(data).subscribe(val =>{
       localStorage.setItem('token',val.accessToken);
         this.auth.getuserdetail(data).subscribe(result =>{
@@ -67,6 +70,7 @@ export class LoginPage {
             localStorage.setItem('userid',result.id);
             localStorage.setItem('username',result.nama);
             localStorage.setItem('datauser',JSON.stringify(result));
+            localStorage.setItem('huruf',JSON.stringify(insert));
             this.navCtrl.setRoot(HomePage);
           }
         })   

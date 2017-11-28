@@ -1,3 +1,4 @@
+import { SplashscreenPage } from './../pages/splashscreen/splashscreen';
 import { SuratketeranganPage } from './../pages/suratketerangan/suratketerangan';
 import { ImportdatapegawaiPage } from './../pages/importdatapegawai/importdatapegawai';
 import { ImportdatasiswaPage } from './../pages/importdatasiswa/importdatasiswa';
@@ -17,7 +18,7 @@ import { ProfilPage } from './../pages/profil/profil';
 import { DatasiswaPage } from './../pages/datasiswa/datasiswa';
 import { LoginPage } from './../pages/login/login';
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform, NavController } from 'ionic-angular';
+import { Nav, Platform, NavController, ModalController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { SettingjamPage } from '../pages/settingjam/settingjam';
@@ -32,7 +33,7 @@ export class MyApp {
   pages: Array<{title: string, component: any,icon:any}>;
   datauser:any;
   userdataok:any;
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,public auth : AuthenticationProvider){
+  constructor(public modalCtrl : ModalController,public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,public auth : AuthenticationProvider){
     this.initializeApp();
   }
 
@@ -51,7 +52,7 @@ export class MyApp {
         this.pages = [
           { title: 'Home', component: HomePage,icon: 'ios-home-outline' },
           { title: 'Surat Keterangan', component: SuratketeranganPage,icon: 'ios-book-outline' },      
-          
+          //{ title: 'Show Anim', component: SplashScreen,icon: 'ios-book-outline' },
           { title: 'Data Siswa', component: DatasiswaPage,icon: 'logo-buffer' },
           { title: 'Data Pegawai', component: DatapegawaiPage,icon: 'logo-buffer' },
           { title: 'Approval Register', component: AprrovalregisterPage,icon: 'logo-buffer'},   
@@ -71,6 +72,7 @@ export class MyApp {
           { title: 'Home', component: HomePage,icon: 'ios-home-outline' },
            { title: 'Surat Keterangan', component: SuratketeranganPage,icon: 'ios-book-outline' },
           { title: 'Profil', component: ProfilPage,icon: 'ios-contact-outline'},
+          //{ title: 'Show Anim', component: SplashscreenPage,icon: 'ios-book-outline' },
           { title: 'Chatting', component: ChattingPage,icon: 'ios-chatbubbles-outline'},
           { title: 'Absensi Finger', component: AbsensisiswaPage,icon: 'ios-checkmark' },         
           { title: 'Laporan Absensi', component: LaporanabsensiPage,icon: 'ios-book-outline' },      
@@ -124,7 +126,8 @@ export class MyApp {
         this.nav.setRoot(HomePage);
       }
       this.statusBar.styleDefault();
-      this.splashScreen.hide();
+      // let splash = this.modalCtrl.create(SplashscreenPage);
+      // splash.present();
      
        // used for an example of ngFor and navigation
      

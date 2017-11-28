@@ -20,14 +20,12 @@ export class ProfilPage {
   nama:string;
   nomorinduk:string;
   useraccess:string;
-  title:string;
   constructor(public navCtrl: NavController, public navParams: NavParams,public modalctrl: ModalController) {
     this.alldata = JSON.parse(localStorage.getItem('datauser'));
     this.gambar = this.alldata.gambar;
     this.nama = this.alldata.nama;
     this.nomorinduk = this.alldata.nomorinduk;
     this.useraccess = this.alldata.useracces;
-    this.title = this.alldata.title
   }
 
   ionViewDidLoad() {
