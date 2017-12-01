@@ -43,14 +43,18 @@ export class LaporanabsensiPage {
       content: 'Sedang Menghitung...',
     })
     loading.present();
+   
     this.laporanservice.getdata().subscribe(result => {
       loading.dismissAll();
+      
       result.forEach(val=>{
+        
         if(val.USERID == this.datauser.id){
-          if(val.Tanggal == this.tanggalawal || val.Tanggal == this.tanggalakhir){
+          if(val.Tanggal >= this.tanggalawal && val.Tanggal <= this.tanggalakhir){
+            console.log(val.Sakit_SD);
             this.totalhadir = this.totalhadir + Number(val.Hadir);
             this.totalsakit = this.totalsakit + Number(val.Sakit);
-            this.totalsakitSD = this.totalsakit + Number(val.Sakit_SD);
+            this.totalsakitSD = this.totalsakitSD + Number(val.Sakit_SD);
             this.ijin = this.totalsakit + Number(val.Ijin);
             this.totalsakit = this.totalsakit + Number(val.Sakit);
             this.alpa = this.totalsakit + Number(val.Alpa);
