@@ -1,4 +1,5 @@
 export class Datasiswamodel{
+    id:string;
     nomorinduk:String;
     nama:String;
     tempatlahir:String;

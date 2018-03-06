@@ -28,7 +28,8 @@ export class ForminputketeranganadminComponent {
   loading: Loading;
   inputtanggal:string;
   keterangan:string;
-  nama:string;
+  nama;
+  jenisuser:String;
   note:string;
   datauser;
   constructor(public viewctrl:ViewController,public navCtrl: NavController, private camera: Camera, private transfer: Transfer, private file: File, private filePath: FilePath, public actionSheetCtrl: ActionSheetController, public toastCtrl: ToastController, public platform: Platform, public loadingCtrl: LoadingController,public siswaservice:DatapegawaiProvider, public pegawaiprovider:DatasiswaProvider) {
@@ -131,38 +132,86 @@ export class ForminputketeranganadminComponent {
     this.viewctrl.dismiss();
   }
   public uploadImage() {
-    // Destination URL
-    var url = "http://198.50.174.117/tmpsuratketerangan";
-   
-    // File for Upload
-    var targetPath = this.pathForImage(this.lastImage);
-   
-    // File name only
-    var filename = this.lastImage;
-    var options = {
-      fileKey: 'file',
-      fileName: filename,
-      chunkedMode: false,
-      mimeType: "multipart/form-data",
-      headers: {'Authorization':localStorage.getItem('token')},
-      params : {"gambar": "http://198.50.174.117/img/"+filename,'note': this.note,"keterangan":this.keterangan,"nama":this.nama,"tanggal":this.inputtanggal,status:'approve',kodesekolah:this.datauser.kodesekolah,"userid":this.datauser.id,"nomorinduk":this.datauser.nomorinduk,"useracces":this.datauser.useracces}
-    };
-   
-    const fileTransfer: TransferObject = this.transfer.create();
-   
-    this.loading = this.loadingCtrl.create({
-      content: 'Uploading...',
-    });
-    this.loading.present();
-    // Use the FileTransfer to upload the image
-    fileTransfer.upload(targetPath, url, options).then(data => {
-      this.loading.dismissAll()
-      this.presentToast('Image succesful uploaded.');
-    }, err => {
-      this.loading.dismissAll()
-      // console.log(ata);
-      console.log(err);
-      this.presentToast('Error while uploading file.');
-    });
+    console.log(this.nama);
+    if(this.jenisuser == 'siswa'){
+      this.siswaservice.getdata().subscribe(val =>{
+        val.forEach(obj =>{
+            if(obj.nomorinduk == this.nama){
+                var url = "http://198.50.174.117/tmpsuratketerangan";            
+                // File for Upload
+                var targetPath = this.pathForImage(this.lastImage);
+              
+                // File name only
+                var filename = this.lastImage;
+                var options = {
+                  fileKey: 'file',
+                  fileName: filename,
+                  chunkedMode: false,
+                  mimeType: "multipart/form-data",
+                  headers: {'Authorization':localStorage.getItem('token')},
+                  params : {"gambar": "http://198.50.174.117/img/"+filename,'note': this.note,"keterangan":this.keterangan,"nama":this.nama,"tanggal":this.inputtanggal,status:'approve',kodesekolah:obj.kodesekolah,"userid":obj.id,"nomorinduk":obj.nomorinduk,"useracces":this.datauser.useracces}
+                };
+              
+                const fileTransfer: TransferObject = this.transfer.create();
+              
+                this.loading = this.loadingCtrl.create({
+                  content: 'Uploading...',
+                });
+                this.loading.present();
+                // Use the FileTransfer to upload the image
+                fileTransfer.upload(targetPath, url, options).then(data => {
+                  this.loading.dismissAll()
+                  this.presentToast('Image succesful uploaded.');
+                }, err => {
+                  this.loading.dismissAll()
+                  // console.log(ata);
+                  console.log(err);
+                  this.presentToast('Error while uploading file.');
+                });
+            }else{
+              return false;
+            }
+        })
+      })
+    }else if(this.jenisuser == 'guru' || this.jenisuser =='pegawai'){
+      this.pegawaiprovider.getdata().subscribe(val=>{
+          val.forEach(obj =>{
+            // // Destination URL
+            if(obj.Nomor_Induk == this.nama){
+              var url = "http://198.50.174.117/tmpsuratketerangan";        
+              // File for Upload
+              var targetPath = this.pathForImage(this.lastImage);
+            
+              // File name only
+              var filename = this.lastImage;
+              var options = {
+                fileKey: 'file',
+                fileName: filename,
+                chunkedMode: false,
+                mimeType: "multipart/form-data",
+                headers: {'Authorization':localStorage.getItem('token')},
+                params : {"gambar": "http://198.50.174.117/img/"+filename,'note': this.note,"keterangan":this.keterangan,"nama":obj.Namama,"tanggal":this.inputtanggal,status:'approve',"kodesekolah":obj.kodesekolah,"userid":this.datauser.id,"nomorinduk":this.datauser.nomorinduk,"useracces":this.datauser.useracces}
+              };
+            
+              const fileTransfer: TransferObject = this.transfer.create();
+            
+              this.loading = this.loadingCtrl.create({
+                content: 'Uploading...',
+              });
+              this.loading.present();
+              // Use the FileTransfer to upload the image
+              fileTransfer.upload(targetPath, url, options).then(data => {
+                this.loading.dismissAll()
+                this.presentToast('Image succesful uploaded.');
+              }, err => {
+                this.loading.dismissAll()
+                // console.log(ata);
+                console.log(err);
+                this.presentToast('Error while uploading file.');
+              });    
+            }
+          })
+      })
+    }
   }
 }

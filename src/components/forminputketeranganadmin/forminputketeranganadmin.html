@@ -20,13 +20,13 @@
           <ion-item *ngIf="jenisuser =='siswa'">
               <ion-label floating>Pilih Siswa</ion-label>
               <ion-select [(ngModel)]="nama">
-                  <ion-option *ngFor="let item of datasiswa" value="{{item.nama}}">{{item.nama}}</ion-option>
+                  <ion-option *ngFor="let item of datasiswa" value="{{item.nomorinduk}}">{{item.nama}}</ion-option>
               </ion-select>
             </ion-item>
             <ion-item *ngIf="jenisuser =='guru' || jenisuser =='pegawai'">
                 <ion-label floating>Pilih pegawai / guru</ion-label>
                 <ion-select [(ngModel)]="nama">
-                    <ion-option *ngFor="let item of datapegawai" value="{{item.Nama}}">{{item.Nama}}</ion-option>
+                    <ion-option *ngFor="let item of datapegawai" value="{{item.Nomor_Induk}}">{{item.Nama}}</ion-option>
                 </ion-select>
               </ion-item>
     <ion-item>

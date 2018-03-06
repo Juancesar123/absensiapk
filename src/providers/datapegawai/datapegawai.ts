@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Http ,RequestOptions,Headers} from '@angular/http';
 import { Observable }     from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import { Apiservice } from '../../app/apiservice';
 
 /*
   Generated class for the DatapegawaiProvider provider.
@@ -19,31 +20,31 @@ export class DatapegawaiProvider {
  getdata() : Observable<Datasiswamodel[]> {
     let header = new Headers({'Authorization':localStorage.getItem('token')});
     let options = new RequestOptions({headers:header});
-     return this.http.get("http://198.50.174.117/datasiswa",options).map(res => res.json() as Datasiswamodel[]);
+     return this.http.get(Apiservice.endpointapi+"/datasiswa",options).map(res => res.json() as Datasiswamodel[]);
   }
   simpandata(data):Observable<Datasiswamodel[]> {
      let header = new Headers({'content-Type':'application/json','Authorization':localStorage.getItem('token')});
      let options = new RequestOptions({headers:header});
      let body = JSON.stringify(data);
-     return this.http.post("http://198.50.174.117/datasiswa",body,options).map(res => res.json() as Datasiswamodel[]);
+     return this.http.post(Apiservice.endpointapi+"/datasiswa",body,options).map(res => res.json() as Datasiswamodel[]);
   }
   hapusdata(item): Observable<Datasiswamodel[]>{
     let header = new Headers({'content-Type':'application/json','Authorization':localStorage.getItem('token')});
     let options = new RequestOptions({headers:header});
     let body = item.id
-    return this.http.delete("http://198.50.174.117/datasiswa/"+body,options).map(res => res.json() as Datasiswamodel[]);
+    return this.http.delete(Apiservice.endpointapi+"/datasiswa/"+body,options).map(res => res.json() as Datasiswamodel[]);
   }
   updatedata(data,id){
     let header = new Headers({'content-Type':'application/json','Authorization':localStorage.getItem('token')});
     let options = new RequestOptions({headers:header});
     let body = JSON.stringify(data);
-    return this.http.patch("http://198.50.174.117/datasiswa/"+id,body,options).map(res => res.json() );
+    return this.http.patch(Apiservice.endpointapi+"/datasiswa/"+id,body,options).map(res => res.json() );
   }
   getdetail(param){
     let header = new Headers({'content-Type':'application/json','Authorization':localStorage.getItem('token')});
     let options = new RequestOptions({headers:header});
     //let body = JSON.stringify(data);
-    return this.http.get("http://198.50.174.117/datasiswa/"+param,options).map(res => res.json());
+    return this.http.get(Apiservice.endpointapi+"/datasiswa/"+param,options).map(res => res.json());
   }
   
 }

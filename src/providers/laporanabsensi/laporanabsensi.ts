@@ -3,6 +3,7 @@ import { Laporanabsensimodel } from './../../app/Laporanabsensimodel';
 import { Injectable } from '@angular/core';
 import { Http, RequestOptions,Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { Apiservice } from '../../app/apiservice';
 
 /*
   Generated class for the LaporanabsensiProvider provider.
@@ -19,14 +20,14 @@ export class LaporanabsensiProvider {
   getdata() : Observable <Laporanabsensimodel[]>{
     let header = new Headers({'Authorization':localStorage.getItem('token')});
     let options = new RequestOptions({headers:header});
-    return this.http.get('http://198.50.174.117/laporanabsensi',options).map(res => res.json() as Laporanabsensimodel[]);
+    return this.http.get(Apiservice.endpointapi+'/laporanabsensi',options).map(res => res.json() as Laporanabsensimodel[]);
 
   }
   simpandata(data) : Observable <Laporanabsensimodel[]>{
     let header = new Headers({'Content-Type':'Application/json','Authorization':localStorage.getItem('token')});
     let options = new RequestOptions({headers:header});
     let body = JSON.stringify(data);
-    return this.http.post('http://198.50.174.117/laporanabsensi',body,options).map(res => res.json() as Laporanabsensimodel[]);
+    return this.http.post(Apiservice.endpointapi+'/laporanabsensi',body,options).map(res => res.json() as Laporanabsensimodel[]);
 
   }
 }
