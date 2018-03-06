@@ -4,7 +4,7 @@ import { HomePage } from './../home/home';
 import { AuthenticationProvider } from './../../providers/authentication/authentication';
 import { RegisterPage } from './../register/register';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, ToastController, Events } from 'ionic-angular';
 
 /**
  * Generated class for the LoginPage page.
@@ -22,7 +22,7 @@ import { IonicPage, NavController, NavParams, LoadingController, ToastController
 export class LoginPage {
   nomorinduk:String;
   password:String;
-  constructor(public navCtrl: NavController, public navParams: NavParams,public auth: AuthenticationProvider, public loadctrl:LoadingController, public toastctrl : ToastController){
+  constructor(public event:Events,public navCtrl: NavController, public navParams: NavParams,public auth: AuthenticationProvider, public loadctrl:LoadingController, public toastctrl : ToastController){
   }
 
   ionViewDidLoad() {
@@ -72,6 +72,7 @@ export class LoginPage {
             localStorage.setItem('username',result.nama);
             localStorage.setItem('datauser',JSON.stringify(result));
             localStorage.setItem('huruf',JSON.stringify(insert));
+            this.event.publish('login');
             this.navCtrl.setRoot(HomePage);
           }
         })   

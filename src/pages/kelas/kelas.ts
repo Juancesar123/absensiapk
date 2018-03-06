@@ -1,7 +1,7 @@
 import { MasterkelasProvider } from './../../providers/masterkelas/masterkelas';
 import { FormtambahkelasComponent } from './../../components/formtambahkelas/formtambahkelas';
 import { Component, OnInit } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController, ActionSheetController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, ActionSheetController, Events } from 'ionic-angular';
 import { FormeditkelasComponent } from "../../components/formeditkelas/formeditkelas";
 import { FormControl } from '@angular/forms';
 
@@ -22,8 +22,14 @@ import { FormControl } from '@angular/forms';
 export class KelasPage implements OnInit{
   datauser;
   datakelas;
-  constructor(public navCtrl: NavController, public navParams: NavParams,public modalCtrl : ModalController,public kelasservice : MasterkelasProvider, public actionctrl:ActionSheetController){
+  constructor(public events:Events,public navCtrl: NavController, public navParams: NavParams,public modalCtrl : ModalController,public kelasservice : MasterkelasProvider, public actionctrl:ActionSheetController){
     this.datauser = JSON.parse(localStorage.getItem('datauser'));
+    this.events.subscribe('simpandatakelas',()=>{
+      this.refresh();
+    })
+    this.events.subscribe('ubahdatakelas',()=>{
+      this.refresh();
+    })
   }
 
   ngOnInit(){

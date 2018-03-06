@@ -1,6 +1,7 @@
+import { Apiservice } from './../../app/apiservice';
 import { AuthenticationProvider } from './../../providers/authentication/authentication';
 import { Component } from '@angular/core';
-import { NavController, ActionSheetController, ToastController, Platform, LoadingController, Loading, ViewController } from 'ionic-angular';
+import { NavController, ActionSheetController, ToastController, Platform, LoadingController, Loading, ViewController, Events } from 'ionic-angular';
 
 import { File } from '@ionic-native/file';
 import { Transfer, TransferObject } from '@ionic-native/transfer';
@@ -25,7 +26,7 @@ export class FormubahprofilComponent {
   text: string;
   huruf;
   lastImage: string = null;
-  constructor(public auth:AuthenticationProvider,public viewctrl:ViewController,public navCtrl: NavController, private camera: Camera, private transfer: Transfer, private file: File, private filePath: FilePath, public actionSheetCtrl: ActionSheetController, public toastCtrl: ToastController, public platform: Platform, public loadingCtrl: LoadingController) {
+  constructor(public events:Events,public auth:AuthenticationProvider,public viewctrl:ViewController,public navCtrl: NavController, private camera: Camera, private transfer: Transfer, private file: File, private filePath: FilePath, public actionSheetCtrl: ActionSheetController, public toastCtrl: ToastController, public platform: Platform, public loadingCtrl: LoadingController) {
     console.log('Hello FormubahprofilComponent Component');
       this.datauser = JSON.parse(localStorage.getItem('datauser'));
       
@@ -121,7 +122,7 @@ export class FormubahprofilComponent {
   }
   public uploadImage() {
     // Destination URL
-    var url = "http://198.50.174.117/users";
+    var url = Apiservice.endpointapi+"/users";
     let databaru = this.datauser.nomorinduk;
     this.auth.hapusdata(databaru).subscribe(val =>{
         // File for Upload
@@ -142,7 +143,7 @@ export class FormubahprofilComponent {
        namasekolah:this.datauser.namasekolah,
        kodesekolah:this.datauser.kodesekolah,
        password:this.huruf.huruf,
-       "gambar": "http://198.50.174.117/imgprofile/"+filename,
+       "gambar": "imgprofile/"+filename,
        //deviceid:deviceid,
        status:'1',
      
@@ -167,7 +168,7 @@ export class FormubahprofilComponent {
      // Use the FileTransfer to upload the image
      fileTransfer.upload(targetPath, url, options).then(data => {
        this.loading.dismissAll()
-       console.log(data);
+       this.events.publish('uploadfotoprofil');
        this.presentToast('Image succesful uploaded.');
      }, err => {
        this.loading.dismissAll()

@@ -1,5 +1,5 @@
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { LoadingController, ToastController, ViewController } from 'ionic-angular';
+import { LoadingController, ToastController, ViewController, Events } from 'ionic-angular';
 import { MasterkelasProvider } from './../../providers/masterkelas/masterkelas';
 import { Component } from '@angular/core';
 
@@ -19,7 +19,7 @@ export class FormtambahkelasComponent {
   kelas: string;
   kodesekolah:string;
   datauser:any;
-  constructor(public kelasprovider: MasterkelasProvider, public loadctrl: LoadingController, public toastcontroll: ToastController, public viewctrl: ViewController) {
+  constructor(public events:Events,public kelasprovider: MasterkelasProvider, public loadctrl: LoadingController, public toastcontroll: ToastController, public viewctrl: ViewController) {
    
   }
   simpan(){
@@ -29,6 +29,7 @@ export class FormtambahkelasComponent {
       kode_sekolah:this.datauser.kodesekolah
     }
     this.kelasprovider.simpandata(data).subscribe(val =>{
+      this.events.publish('simpandatakelas')
        let loadpresnt = this.loadctrl.create({
           content:'Mohon Tunggu',
           duration: 3000,

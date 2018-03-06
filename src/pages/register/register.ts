@@ -46,7 +46,7 @@ export class RegisterPage {
       namasekolah:this.namasekolah,
       kodesekolah:this.kodesekolah,
       password:this.password,
-      gambar:'http://198.50.174.117/defaultimage.png',
+      gambar:'defaultimage.png',
       //deviceid:deviceid,
       status:'0',
     }

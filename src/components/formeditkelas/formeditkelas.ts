@@ -1,4 +1,4 @@
-import { NavParams, ViewController, ToastController, LoadingController } from 'ionic-angular';
+import { NavParams, ViewController, ToastController, LoadingController, Events } from 'ionic-angular';
 import { MasterkelasProvider } from './../../providers/masterkelas/masterkelas';
 import { Component } from '@angular/core';
 
@@ -20,7 +20,7 @@ export class FormeditkelasComponent {
   data;
   id:string;
   datauser:any;
-  constructor(public kelasservice : MasterkelasProvider, public params: NavParams, public viewctrl : ViewController,public toastctrl : ToastController, public loadctrl: LoadingController) {
+  constructor(public events:Events,public kelasservice : MasterkelasProvider, public params: NavParams, public viewctrl : ViewController,public toastctrl : ToastController, public loadctrl: LoadingController) {
     console.log('Hello FormeditkelasComponent Component');
     this.text = 'Hello World';
     this.data = params.get('deviceNum');
@@ -31,12 +31,14 @@ export class FormeditkelasComponent {
   }
   simpan(){
     this.datauser = JSON.parse(localStorage.getItem('datauser'));
+   
     let data = {
       kelas:this.kelas,
       kode_sekolah:this.datauser.kodesekolah
     }
     let id = this.id
     this.kelasservice.updatedata(data,id).subscribe(val => {
+      this.events.publish('ubahdatakelas');
       let loadingaja = this.loadctrl.create({
         content:'mohon tunggu',
         duration: 2000

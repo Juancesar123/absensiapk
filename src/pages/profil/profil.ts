@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { FormubahprofilComponent } from "../../components/formubahprofil/formubahprofil";
+import { Apiservice } from "../../app/apiservice";
 
 /**
  * Generated class for the ProfilPage page.
@@ -20,6 +21,7 @@ export class ProfilPage {
   nama:string;
   nomorinduk:string;
   useraccess:string;
+  apiendpoint:any =Apiservice.endpointapi;
   constructor(public navCtrl: NavController, public navParams: NavParams,public modalctrl: ModalController) {
     this.alldata = JSON.parse(localStorage.getItem('datauser'));
     this.gambar = this.alldata.gambar;

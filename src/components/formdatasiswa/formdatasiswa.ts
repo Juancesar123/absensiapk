@@ -7,7 +7,7 @@ import { Camera } from '@ionic-native/camera';
 
 import { DatapegawaiProvider } from './../../providers/datapegawai/datapegawai';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController, ViewController, LoadingController, ToastController, ActionSheetController, Platform } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, ViewController, LoadingController, ToastController, ActionSheetController, Platform, Events } from 'ionic-angular';
 /**
  * Generated class for the FormdatasiswaComponent component.
  *
@@ -48,7 +48,7 @@ export class FormdatasiswaComponent {
   data;
   datauser;
   lastImage: string = null;
-  constructor(public navctrl:NavController,private toastCtrl: ToastController,public viewCtrl:ViewController,public siswaservice: DatapegawaiProvider,public loadingctrl:LoadingController,public params:NavParams,public actionSheetCtrl:ActionSheetController,public camera: Camera,private transfer: Transfer, private file: File, private filePath: FilePath,public platform: Platform) {
+  constructor(public events:Events,public navctrl:NavController,private toastCtrl: ToastController,public viewCtrl:ViewController,public siswaservice: DatapegawaiProvider,public loadingctrl:LoadingController,public params:NavParams,public actionSheetCtrl:ActionSheetController,public camera: Camera,private transfer: Transfer, private file: File, private filePath: FilePath,public platform: Platform) {
     console.log('Hello FormdatasiswaComponent Component');
     this.datauser = JSON.parse(localStorage.getItem('datauser'));
    // this.text = 'Hello World';
@@ -93,6 +93,7 @@ close(){
     loader.present();
     this.siswaservice.simpandata(data).subscribe(val =>{
       loader.dismissAll();
+      
       toast.present();
         //this.presentToast('Image succesful uploaded.');
     },err=>{
