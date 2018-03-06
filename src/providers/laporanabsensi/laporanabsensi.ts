@@ -17,7 +17,7 @@ export class LaporanabsensiProvider {
   constructor(public http: Http) {
     
   }
-  getdata() : Observable <Laporanabsensimodel[]>{
+  getdata(){
     let header = new Headers({'Authorization':localStorage.getItem('token')});
     let options = new RequestOptions({headers:header});
     return this.http.get(Apiservice.endpointapi+'/laporanabsensi',options).map(res => res.json() as Laporanabsensimodel[]);
